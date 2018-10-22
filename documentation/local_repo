@@ -1,0 +1,48 @@
+
+step by step (New Branch)
+	
+	GIT branching
+	1. git init
+		(initialize your local git repo)
+	2. create a repository in gitlab. (new project in gitlab)
+
+	Create the dev branch
+	3. git checkout -b dev
+		(creates a dev branch where you will make ALL your changes and updates.)
+	4. git branch
+		(to check what branch you are in)
+	5. git status
+		(to check what files haven't been added yet)
+	6. git add -A
+		(to add the files in the folder)
+	7. git remote add <alias> <url from gitlab>
+		(adds the remote repo from gitlab)
+	8. git commit -m "<message>"
+		(commits all the changes done)
+
+------All your commits/progress will be in your dev branch while your "pushes" will take place in your staging(gitlab) and prod(github) branches
+
+
+------------------------
+	Create the staging branch
+
+	1. git checkout -b staging
+		(creates your staging branch)
+	2. git branch
+		(check what branch you are in)
+	3. git checkout staging
+		(change current branch to staging)
+	4. git merge dev
+		(copies the content of the dev branch to staging)
+			(syntax: in destination branch: git merge source)
+	5. git commit -m "<message>"
+		(commits all changes in staging branch)
+	6. git remote -v
+		(checks all the repos and alias defined)
+	7. git push <alias> staging
+		(pushes staging contents to remote repo)
+
+
+
+
+

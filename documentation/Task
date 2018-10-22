@@ -1,0 +1,10 @@
+Task:
+
+1. Access mockaroo.com
+2. Make your own mock data
+3. Save the downloaded data to source directory
+4. Create two files in partials folder named header.php and footer.php
+5. Create a file called home.php in views(that will serve as our landing page)
+6. Create a file called template.php in partials and that template would be used by our views.
+7. Move the content of index.php to template.php and include the header and footer. 
+	Create a get content function call.

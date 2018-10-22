@@ -1,0 +1,32 @@
+Note: this assumes you already have setup your branches and remote repository.
+
+	Start of Work:
+
+	1. git checkout staging
+		(change current branch to staging)
+	2. git pull <alias> staging
+		(pull from gitlab to staging)
+	3. git checkout day
+		(changes current branch to dev)
+	4. git merge staging
+		(merges staging content to dev)
+	5. Code in dev branch.
+
+	End of work:
+
+	1. git branch
+		(make sure you are still on the dev branch)
+	2. git add -A
+		(add all the files changed)
+	3. git commit -m "<message>"
+		(commit all changes done)
+	4. git status
+		(makes sure that all the files are there)
+	5. git branch staging
+		(chagne current branch from dev to staging)
+	6. git merge dev
+		(copies dev content to staging)
+	7. git commit -m "<message>"
+		(commits all changes in staging)
+	8. git push <alias> staging
+		(pushes all changes from staging to remote repo)
