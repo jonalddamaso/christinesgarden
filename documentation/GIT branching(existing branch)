@@ -6,7 +6,7 @@ Note: this assumes you already have setup your branches and remote repository.
 		(change current branch to staging)
 	2. git pull <alias> staging
 		(pull from gitlab to staging)
-	3. git checkout day
+	3. git checkout dev
 		(changes current branch to dev)
 	4. git merge staging
 		(merges staging content to dev)
@@ -30,3 +30,11 @@ Note: this assumes you already have setup your branches and remote repository.
 		(commits all changes in staging)
 	8. git push <alias> staging
 		(pushes all changes from staging to remote repo)
+
+
+Do this only once at home before doing start of work:
+	
+	1. git init
+	2. git checkout -b dev
+	3. git checkout -b staging
+	4. proceed to "start of work" steps
