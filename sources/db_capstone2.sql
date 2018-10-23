@@ -16,7 +16,7 @@ CREATE TABLE orders (
 	id INT NOT NULL AUTO_INCREMENT,
 	user_id INT NOT NULL,
 	transaction_code varchar(255) NOT NULL,
-	purchase_date TIMESTAMP(255) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	purchase_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	status_id INT NOT NULL,
 	payment_mod_id INT NOT NULL,
 	PRIMARY KEY (id)

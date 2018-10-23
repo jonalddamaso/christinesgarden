@@ -1,5 +1,6 @@
-
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <link rel="stylesheet" type="text/css" href="./assets/styles/style.css">
+ 
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar_id">
     <a href="../index.php" class="navbar-brand">Mia's Garden</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar">
       <span class="navbar-toggler-icon"></span>
