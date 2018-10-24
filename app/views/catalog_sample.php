@@ -1,7 +1,11 @@
-<?php require_once "../partials/template.php" ?>
+<!-- <link rel="stylesheet" type="text/css" href="../assets/styles/style.css"> -->
+
+<?php require_once "../partials/template_sample.php" ?>
 
 <?php function get_page_content() { 
-require_once "../controllers/connect_sample.php"; ?>
+	global $conn; //refers to $conn outside of my function
+	?>
+	
 
 	<div class="container-fluid" id="page-catalog">
 		<div class="row">
@@ -83,6 +87,6 @@ require_once "../controllers/connect_sample.php"; ?>
 			</div>
 		</div>
 	</div>
-<?php mysqli_close($conn); ?>
+
 <?php } ?>
 

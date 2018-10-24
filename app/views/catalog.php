@@ -1,7 +1,8 @@
 <?php require_once "../partials/template.php" ?>
 
 <?php function get_page_content() { 
-require_once "../controllers/connections.php"; ?>
+		global $conn; //refers to $conn outside of my function.
+		?>
 
 	<div class="container-fluid" id="page-catalog">
 		<div class="row">
@@ -65,11 +66,11 @@ require_once "../controllers/connections.php"; ?>
 									<p class="card-text">
 										<?php echo $item['description'];?>
 										<br>
-										<h5>Price: <strong><?php echo $item['price']; ?></strong></h5>
+										<h5>Price: Php <strong><?php echo $item['price']; ?></strong></h5>
 									</p>
 								</div>
 								<div class="card-footer">
-									<input type="nuber" class="form-control" placeholder = "Quantity">
+									<input type="number" class="form-control" placeholder = "Quantity">
 									<br>
 										<button type="submit" class="btn btn-outline-primary add-to-cart" data-id = "<?php echo $item['id'];?>">Add to cart</button>
 								</div>
@@ -82,6 +83,6 @@ require_once "../controllers/connections.php"; ?>
 			</div>
 		</div>
 	</div>
-<?php mysqli_close($conn); ?>
+
 <?php } ?>
 

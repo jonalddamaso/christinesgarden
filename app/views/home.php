@@ -5,7 +5,9 @@
 		<h1>Mia's Garden</h1>
 		
 		<div class="polaroid">
- 			<img src="../assets/images/landingplant.png" alt ="LandingPage" style="width:40%">
+ 			<img src="../assets/images/landingplant.png" alt ="LandingPage" style="width:20%">
+ 			<img src="../assets/images/indoor4.png" alt ="LandingPage" style="width:20%">
+ 			<img src="../assets/images/snakeplant2.png" alt ="LandingPage" style="width:20%">
   			<div class="container">
     			<p>Sample images</p>
  			</div>

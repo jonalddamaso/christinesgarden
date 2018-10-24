@@ -23,11 +23,15 @@
 
 </head>
 <body>
+
 		<?php 
 		require_once "header.php";
+		require_once "../controllers/connections.php";
 		 ?>
 
-		 <?php get_page_content(); ?>
+		 <?php get_page_content();
+		 mysqli_close($conn);
+		  ?>
 
 		 <?php 
 		require_once "footer.php";

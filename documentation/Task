@@ -8,3 +8,13 @@ Task:
 6. Create a file called template.php in partials and that template would be used by our views.
 7. Move the content of index.php to template.php and include the header and footer. 
 	Create a get content function call.
+
+
+
+Note: **
+
+	let name = /^[a-zA-z]+$/;
+
+		 - /^[a-zA-z]+$/ is what we call regular expression or regex 
+		 - regex is a writing notation to create a pattern for your code to search through
+		 - it uses certain symbols to check if the pattern exists or not.
