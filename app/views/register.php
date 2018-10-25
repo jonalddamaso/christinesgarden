@@ -1,8 +1,16 @@
 <?php require_once "../partials/template.php"; ?>
 <?php function get_page_content(){
 	global $conn; ?>
-	<div class="container">
-		<div style="margin: 20px 0 25px 0;">
+	<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="card" style="margin: 20px 0 25px 0;">
+					<img class="card-img-top" src="../assets/images/landingplant5.jpg">
+				
+			</div>
+		</div>
+		<div class="col-lg-6">
+		<div  style="margin: 20px 0 25px 0;">
 			<div class="jumbotron text-center">
 				<h4>Register</h4>
 			</div>
@@ -24,26 +32,19 @@
 							<span class="validation"></span>
 						</div>
 						<div class="form-group">
-							<label for="gender">
-								Gender:
-							</label>
-							<input type="text" class="form-control" id="gender" name="gender" placeholder="Enter gender">
-							<span class="validation"></span>
-						</div>
-						<div class="form-group">
 							<label for="email">
 								Email:
 							</label>
 							<input type="email" class="form-control" id="email" name="email" placeholder="Enter email address">
 							<span class="validation"></span>
 						</div>
-						<div class="form-group">
+						<!-- <div class="form-group">
 							<label for="phone">
 								Phone:
 							</label>
-							<input type="number" class="form-control" id="phone" name="phone" placeholder="Enter phone">
+							<input type="number" class="form-control" id="phone" name="phone" placeholder="Enter phone address">
 							<span class="validation"></span>
-						</div>
+						</div> -->
 						<div class="form-group">
 							<label for="address">
 								Home:
@@ -77,6 +78,7 @@
 			</div>
 		</div>		
 	</div>
-
+	</div>
+	</div>
 
 <?php } ?>

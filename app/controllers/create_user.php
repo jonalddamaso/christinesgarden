@@ -1,5 +1,5 @@
 <?php 
-	require_once 'connect_sample.php';
+	require_once 'connections.php';
 
 	$username = $_POST['username'];
 	$password = password_hash($_POST['password'], PASSWORD_BCRYPT);

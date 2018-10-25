@@ -64,14 +64,16 @@
 										<?php echo $item['name']?>
 									</h4>
 									<p class="card-text">
-										<?php echo $item['description'];?>
+										
+										<!-- <?php echo $item['description'];?> -->
+
 										<br>
 										<h5>Price: Php <strong><?php echo $item['price']; ?></strong></h5>
 									</p>
 								</div>
 								<div class="card-footer">
-									<input type="number" class="form-control" placeholder = "Quantity">
-									<br>
+									<input type="number" class="form-control" placeholder = "Quantity" min ="1">
+									
 										<button type="submit" class="btn btn-outline-primary add-to-cart" data-id = "<?php echo $item['id'];?>">Add to cart</button>
 								</div>
 							</div>

@@ -99,16 +99,70 @@ $(document).on("DOMContentLoaded", ()=>{
 					'firstname':firstname,
 					'lastname':lastname,
 					'email':email,
-					'address':address,
+					'address':address
 				},
 				"success": (data) => {
 					if (data == "user_exists"){
-						$("#username").next().text("Username already exists");
-					}
+						$("#username").next().text("Username already exists").css("color","red");
+					} else {
+					window.location.replace("login.php");
+				}
 				}
 
 			});
 		}
 	});
+
+	// login and session
+	$("#login").click((e) => {
+		let username = $('#username').val();
+		let password = $('#password').val();
+		//alert("username:" + username);
+		//alert("password:" + password);
+		$.ajax({
+			"url": "../controllers/authenticate.php",
+			"type": "POST",
+			"data": {
+				'username': username,
+				'password': password
+			},
+
+			"success": (data) => {
+				if(data == "login_failed"){
+					$("#username").next().text("Please provide correct credentials").css("color","red");
+				} else {
+					window.location.replace("../index.php");
+				}
+			}
+
+		});
+
+	});
+
+	//prep for add to cart: turning off the default behavior and overriding with our own
+	$(document).off('click', '.add-to-cart').on('click', '.add-to-cart', (e) => {
+		e.stopPropagation();
+		let item_id = $(e.target).attr('data-id');
+		let item_quantity = parseInt($(e.target).prev().val());
+		// alert("ID: " + item_id + " Quantity ordered: " + item_quantity);
+
+		$.ajax({
+			"url": "../controllers/update_cart.php",
+			"data": {
+				'item_id': item_id,
+				'item_quantity': item_quantity
+			},
+			"type": "POST",
+			"success": (dataFromController) => {
+				$("#cart-count").text(dataFromController);
+				$(e.target).prev().val('');
+			}
+
+		});
+
+
+	});
+
+
 
 });

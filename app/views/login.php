@@ -2,7 +2,7 @@
 <?php function get_page_content(){
 	global $conn; ?>
 	<div class="container">
-		<div style="margin: 20px 0 25px 0;">
+		<div style="margin: 20px 0 25px 0;" class="col-sm-6 mx-auto">
 			<div class="jumbotron text-center">
 				<h4>Login</h4>
 			</div>
