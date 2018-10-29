@@ -22,8 +22,8 @@ Note: this assumes you already have setup your branches and remote repository.
 		(commit all changes done)
 	4. git status
 		(makes sure that all the files are there)
-	5. git branch staging
-		(chagne current branch from dev to staging)
+	5. git checkout staging
+	
 	6. git merge dev
 		(copies dev content to staging)
 	7. git commit -m "<message>"
