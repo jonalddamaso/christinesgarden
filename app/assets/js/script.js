@@ -113,6 +113,31 @@ $(document).on("DOMContentLoaded", ()=>{
 		}
 	});
 
+	// //adding new items
+	// $("#add_item").click((e) => {
+	// 	if(validate_registration_form()){
+	// 		let item_name = $("#item_name").val();
+	// 		let item_desc = $("#item_desc").val();
+	// 		let item_price = $("#item_price").val();
+	// 		let item_category = $("#item_category").val();
+	// 		let item_image = $("#item_image").val();
+			
+	// 		$.ajax({
+	// 			"url": '../controllers/admin_user.php',
+	// 			"type": "POST",
+	// 			"data":{
+	// 				'item_name':item_name,
+	// 				'item_desc':item_desc,
+	// 				'item_price':item_price,
+	// 				'item_category':item_category,
+	// 				'item_image':item_image
+	// 			},
+	// 			"success": (data);
+
+	// 		});
+	// 	}
+	// });
+
 	// login and session
 	$("#login").click((e) => {
 		let username = $('#username').val();
@@ -150,7 +175,8 @@ $(document).on("DOMContentLoaded", ()=>{
 			"url": "../controllers/update_cart.php",
 			"data": {
 				'item_id': item_id,
-				'item_quantity': item_quantity
+				'item_quantity': item_quantity,
+				'update_flag': false
 			},
 			"type": "POST",
 			"success": (dataFromController) => {
@@ -163,6 +189,57 @@ $(document).on("DOMContentLoaded", ()=>{
 
 	});
 
+	function getTotal(){
+		let total = 0;
+		$(".item_subtotal").each(function(e){
+			total += parseFloat($(this).text());
+		});
+		$("#total_price").text(total.toFixed(2));
+	}
 
+	//edit cart
+	$(".item_quantity>input").on("input", (e) => {
+		let item_id = $(e.target).data('id');
+		let quantity = parseInt($(e.target).val());
+		let price = parseFloat($(e.target).parents('tr').find(".item_price").text());
 
+		// console.log(item_id + " New Quantity: " + quantity);
+		subTotal = quantity * price;
+		$(e.target).parents('tr').find('.item_subtotal').text(subTotal.toFixed(2));
+		getTotal();
+		$.ajax ({
+			"type": "POST",
+			"url": "../controllers/update_cart.php",
+			"data": {
+				'item_id': item_id,
+				'item_quantity': quantity,
+				'update_flag': true
+			},
+			"success": (data) => {
+				$('#cart-count').text(data);
+			}
+		});
+
+	});
+
+	//delete
+	$(document).off('click', ".item-remove").on('click', '.item-remove',(e) =>{
+		e.stopPropagation();
+		let item_id = $(e.target).data('id');
+		// alert("Item id to be removed: " + item_id);
+
+		$.ajax({
+			"type": "POST",
+			"url": "../controllers/update_cart.php",
+			"data": {
+				'item_id': item_id,
+				'item_quantity': 0
+			},
+			"success": (data) => {
+				$(e.target).parents('tr').remove();
+				$("#cart-count").text(data);
+				getTotal();
+			}
+		});
+	});
 });

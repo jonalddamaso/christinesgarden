@@ -59,17 +59,20 @@
 						<div class="col-sm-3 py-2">
 							<div class="card h-100">
 								<img class="card-img-top" src="<?php echo $item['image_path']; ?>">
-								<div class="card-body">
-									<h4 class="card-title">
-										<?php echo $item['name']?>
-									</h4>
-									<p class="card-text">
-										
-										<!-- <?php echo $item['description'];?> -->
+								<div class="card-body">	
+										<h4 class="card-title">
+											<?php echo $item['name']?>
+										</h4>
+									
+										<p class="card-text overlay">
+										<?php echo $item['description'] ?>
+										</p>
+								
+										<p class="card-text mb-0">
+											<h5>Price: Php <strong><?php echo $item['price']; ?></strong></h5>
+										</p>
 
-										<br>
-										<h5>Price: Php <strong><?php echo $item['price']; ?></strong></h5>
-									</p>
+									
 								</div>
 								<div class="card-footer">
 									<input type="number" class="form-control" placeholder = "Quantity" min ="1">
