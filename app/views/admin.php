@@ -13,7 +13,6 @@
 		<div  style="margin: 20px 0 25px 0;">
 			<div class="jumbotron text-center">
 				<h4>Admin Account</h4>
-				<h5>Add and Deleting Products</h5>
 			</div>
 			<form action="" method="POST">
 				<div class="row">
@@ -53,11 +52,9 @@
 							<input type="text" class="form-control" id="item_image" name="item_image" placeholder="Enter Item Category">
 							<span class="validation"></span>
 						</div> -->
-							<form action="process_file_upload.php" method="post" enctype="multipart/form-data">
-								<!-- w/o enctype="multipart/from-data", file uploads Won't work -->
+							<form action="../controllers/process_file_upload.php" method="post" enctype="multipart/form-data">
 								Select Image to upload:<br>
 								<input type="file" name="item_image" id="item_image"></input>
-								<!-- use an input type file for uploads -->
 								<button type="submit">Upload image</button>
 							</form>
 					</div>

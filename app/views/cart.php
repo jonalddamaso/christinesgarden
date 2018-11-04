@@ -38,7 +38,7 @@
 							<td class="item_price text-right align-middle"><?php echo $item['price']; ?></td>
 							<td class="item_quantity align-middle"><input type="number" value="<?php echo $qty; ?>" class="form-control text-right align-middle mx-auto" min="1" style="width:150px" data-id="<?php echo $id; ?>"></td>
 							<td class="item_subtotal text-right align-middle"><?php echo $subTotal; ?></td>
-							<td class="item_action text-center align-middle"><button class="btn btn-danger item-remove" data-id="<?php echo $id; ?>">Remove from Cart</button></td>
+							<td class="item_action text-center align-middle"><button class="btn btn-danger item-remove" data-id="<?php echo $id; ?>">X</button></td>
 							</tr>
 					
 					
@@ -49,9 +49,7 @@
 					<tr>
 						<td class="text-right font-weight-bold align-middle" colspan="4">Total</td>
 						<td class="text-right font-weight-bold align-middle" id="total_price">
-							<?php 
-							echo $cart_total;
-							?>
+							<?php echo $cart_total;?>
 						</td>
 					</tr>
 					<tr>

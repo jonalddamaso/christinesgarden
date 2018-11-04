@@ -1,7 +1,7 @@
   <!-- <link rel="stylesheet" type="text/css" href="./assets/styles/style.css"> -->
  
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar_id">
-    <a href="../index.php" class="navbar-brand">Mia's Garden</a>
+    <a href="../index.php" class="navbar-brand" id="nav-name"><em id="logo">Christine's</em> Garden</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,7 +11,7 @@
                 <a href="../views/catalog.php" class="nav-link">Catalog</a>              
             </li>
             <li class="nav-item">
-                <a href="../views/cart.php" class="nav-link">Cart <span class="badge bg-light text-dark" id="cart-count">
+                <a href="../views/cart.php" class="nav-link"><i class="fas fa-shopping-cart"></i> <span class="badge bg-light text-dark" id="cart-count">
                     <?php if(isset($_SESSION['cart'])){
                         echo array_sum($_SESSION['cart']);
                     } else {
@@ -22,7 +22,7 @@
             </li>
             <?php if(!isset($_SESSION['user'])) { ?>
              <li class="nav-item">
-                <a href="../views/login.php" class="nav-link">Login</a>              
+                <a href="../views/login.php" class="nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>              
             </li>
              <li class="nav-item">
                 <a href="../views/register.php" class="nav-link">Register</a>              
@@ -35,7 +35,7 @@
             </li>
             <li class="nav-item">
                 <a href="../controllers/logout.php" class="nav-link" id="logout">
-                    Logout
+                    <i class="fas fa-lock"></i> Logout
                 </a>
             </li>
             <?php } ?>

@@ -106,37 +106,44 @@ $(document).on("DOMContentLoaded", ()=>{
 						$("#username").next().text("Username already exists").css("color","red");
 					} else {
 					window.location.replace("login.php");
-				}
+					}
 				}
 
 			});
 		}
 	});
 
-	// //adding new items
-	// $("#add_item").click((e) => {
-	// 	if(validate_registration_form()){
-	// 		let item_name = $("#item_name").val();
-	// 		let item_desc = $("#item_desc").val();
-	// 		let item_price = $("#item_price").val();
-	// 		let item_category = $("#item_category").val();
-	// 		let item_image = $("#item_image").val();
+	//adding new items
+	$("#add_item").click((e) => {
+		if(validate_registration_form()){
+			let item_name = $("#item_name").val();
+			let item_desc = $("#item_desc").val();
+			let item_price = $("#item_price").val();
+			let item_category = $("#item_category").val();
+			let item_image = $("#item_image").val();
 			
-	// 		$.ajax({
-	// 			"url": '../controllers/admin_user.php',
-	// 			"type": "POST",
-	// 			"data":{
-	// 				'item_name':item_name,
-	// 				'item_desc':item_desc,
-	// 				'item_price':item_price,
-	// 				'item_category':item_category,
-	// 				'item_image':item_image
-	// 			},
-	// 			"success": (data);
+			$.ajax({
+				"url": '../controllers/admin_user.php',
+				"type": "POST",
+				"data":{
+					'item_name':item_name,
+					'item_desc':item_desc,
+					'item_price':item_price,
+					'item_category':item_category,
+					'item_image':item_image
+				},
+				"success": (data) => {
+					if(data == "item_exists"){
+						$("#item_name").next().text("Item already in database");
+					} else {
+						window.location.replace("admin_user.php");
+						alert("Successfully Added to Database");
+					}
+				}
 
-	// 		});
-	// 	}
-	// });
+			});
+		}
+	});
 
 	// login and session
 	$("#login").click((e) => {

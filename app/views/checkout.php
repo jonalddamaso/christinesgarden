@@ -8,10 +8,16 @@
 			}
 
 		?>
-		<h1>This is the checkout page</h1>
+		
 		<form method="POST" action="../controllers/placeorder.php">
 			<!-- TODO placeholder.php controller -->
 			<div class="container">
+				<div class = "row">
+					<div class="col-lg-12">
+						<h1>Checkout Page</h1>
+					</div>
+				</div>
+				<hr>
 				<div class="row mt-4">
 					<div class="col-sm-8">
 						<h4>Shipping address</h4>
@@ -68,10 +74,12 @@
 										$itemInfo = mysqli_query($conn, $sql_query);
 										$item = mysqli_fetch_assoc($itemInfo);	
 									?>
-									<td class="item_name align-middle" colspan="2"><?php echo $item['name']; ?></td>
-									<td class="item_price align-middle"><?php echo $item['price']; ?></td>
-									<td class="item_quantity align-middle"><?php echo $qty; ?></td>
-									<td class="item_subtotal align-middle"><?php echo $qty * $item['price']; ?></td>
+									<tr>
+										<td class="item_name align-middle" colspan="2"><?php echo $item['name']; ?></td>
+										<td class="item_price align-middle"><?php echo $item['price']; ?></td>
+										<td class="item_quantity align-middle"><?php echo $qty; ?></td>
+										<td class="item_subtotal align-middle"><?php echo $qty * $item['price']; ?></td>
+									</tr>
 									<?php } ?>
 								</tbody>
 							</table>
