@@ -42,10 +42,11 @@
 							</tr>
 					
 					
-					<?php }} ?>
+					
 
 				</tbody>
 				<tfoot>
+
 					<tr>
 						<td class="text-right font-weight-bold align-middle" colspan="4">Total</td>
 						<td class="text-right font-weight-bold align-middle" id="total_price">
@@ -57,10 +58,12 @@
 							<a href="checkout.php" class="btn btn-primary">Proceed to Checkout</a>
 						</td>
 					</tr>
+					<?php }} ?>
 				</tfoot>
 				<?php
 				} else { 
 					echo "<tr><td class='text-center' colspan='6'> No Items in Cart </tr></td>";
+		
 				} ?>
 			</table>
 		</div>
