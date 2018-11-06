@@ -1,5 +1,6 @@
 <?php 
 	require_once 'connections.php';
+	session_start();
 
 	$username = $_POST['username'];
 	$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
@@ -15,8 +16,14 @@
 	} else {
 		$insert_query = "INSERT INTO users(username, password, firstname, lastname, email, address) VALUES ('$username', '$password', '$firstname', '$lastname', '$email', '$address');";
 		$result = mysqli_query($conn, $insert_query);
+
 	}
 
-	mysqli_close($conn);
+	$sql_query2 = "SELECT * FROM users WHERE username = '$username'";
+	$result = mysqli_query($conn, $sql_query2);
+	$user_info = mysqli_fetch_assoc($result);
+	$_SESSION['user'] = $user_info;
 
+	mysqli_close($conn);
+	// header ("location: ../views/catalog.php");
 ?>

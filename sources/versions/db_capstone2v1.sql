@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
--- http://www.phpmyadmin.net
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 06, 2018 at 09:42 AM
--- Server version: 10.1.9-MariaDB
--- PHP Version: 7.0.0
+-- Generation Time: Nov 04, 2018 at 05:26 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -61,9 +63,9 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id`, `name`, `description`, `image_path`, `price`, `category_id`) VALUES
-(1, 'Adonidia Palm', 'Best known as ''Christmas Palm,'' the adonidia palm is a showy, highly ornamental palm that works beautifully in small landscape areas', '../assets/images/adonidia_palm_outdoor.png', '500', 1),
+(1, 'Adonidia Palm', 'Best known as \'Christmas Palm,\' the adonidia palm is a showy, highly ornamental palm that works beautifully in small landscape areas', '../assets/images/adonidia_palm_outdoor.png', '500', 1),
 (2, 'Elephant Ear Plant', 'Alocasia and colocasia, better known as elephant ears, are impressive plants that are prized for their dramatic foliage. Their huge leaves can measure up to 2 feet across and the foliage color ranges from lime green to almost black. Upright elephant ears ', '../assets/images/elephant_ear_plants_indoor.jpg', '500', 2),
-(3, 'Snake Plant', 'Sansevieria trifasciata is a species of flowering plant in the family Asparagaceae, native to tropical West Africa from Nigeria east to the Congo. It is most commonly known as the snake plant, mother-in-law''s tongue, and viper''s bowstring hemp, among othe', '../assets/images/SNAKE-PLANT.png', '449', 3),
+(3, 'Snake Plant', 'Sansevieria trifasciata is a species of flowering plant in the family Asparagaceae, native to tropical West Africa from Nigeria east to the Congo. It is most commonly known as the snake plant, mother-in-law\'s tongue, and viper\'s bowstring hemp, among othe', '../assets/images/SNAKE-PLANT.png', '449', 3),
 (5, 'Yucca ', 'Yucca is a genus of perennial shrubs and trees in the family Asparagaceae, subfamily Agavoideae. Its 40 to 50 species are notable for their rosettes of evergreen, tough, sword-shaped leaves and large terminal panicles of white or whitish flowers. They are', '../assets/images/yucca-plant.png', '550', 1),
 (8, 'Echeveria Panda', 'Echeveria succulent paired with our panda planter. Dimensions: 13 cm x 7 cm x 7.5 cm. This pet-friendly succulent is ideal for home and offices.Your plant height, size and colour may vary slightly.', '../assets/images/succulent/echeveria-panda.jpg', '699', 4),
 (9, 'Echeveria Zebra', 'Echeveria succulent paired with our zebra planter. This pet-friendly succulent is ideal for home and offices. Your plant height, size and colour may vary slightly', '../assets/images/succulent/echeveria-zebra.jpg', '699', 4),
@@ -102,28 +104,6 @@ CREATE TABLE `orders` (
   `payment_mod_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `user_id`, `transaction_code`, `purchase_date`, `status_id`, `payment_mod_id`) VALUES
-(4, 4, '4912A3-1541473181', '2018-11-05 19:59:41', 1, 1),
-(5, 4, '5C9E22-1541473216', '2018-11-05 20:00:16', 1, 1),
-(6, 4, '3DB6E3-1541473373', '2018-11-05 20:02:53', 1, 1),
-(7, 4, '617489-1541473478', '2018-11-05 20:04:38', 1, 1),
-(8, 4, 'C93C5E-1541473569', '2018-11-05 20:06:09', 1, 1),
-(9, 4, '19D673-1541474155', '2018-11-05 20:15:55', 1, 1),
-(10, 4, 'D034D5-1541474228', '2018-11-05 20:17:08', 1, 1),
-(11, 4, '330FF8-1541474291', '2018-11-05 20:18:11', 1, 1),
-(12, 4, 'A192C2-1541474295', '2018-11-05 20:18:15', 1, 1),
-(13, 4, '1A23A2-1541474407', '2018-11-05 20:20:07', 1, 1),
-(14, 4, 'C073C9-1541474495', '2018-11-05 20:21:35', 1, 1),
-(15, 4, 'C71D99-1541475059', '2018-11-05 20:30:59', 1, 1),
-(16, 4, '949EF3-1541475269', '2018-11-05 20:34:29', 1, 1),
-(17, 4, '6A5171-1541479910', '2018-11-05 21:51:50', 1, 1),
-(18, 10, '5D5EDA-1541482784', '2018-11-05 22:39:44', 1, 1),
-(19, 10, '3C68E2-1541482896', '2018-11-05 22:41:36', 1, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -138,25 +118,6 @@ CREATE TABLE `orders_item` (
   `price` decimal(18,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `orders_item`
---
-
-INSERT INTO `orders_item` (`id`, `order_id`, `item_id`, `quantity`, `price`) VALUES
-(1, 5, 8, 1, '699.00'),
-(2, 7, 10, 1, '699.00'),
-(3, 8, 5, 1, '550.00'),
-(4, 9, 8, 1, '699.00'),
-(5, 13, 10, 1, '699.00'),
-(6, 14, 9, 1, '699.00'),
-(7, 15, 1, 1, '500.00'),
-(8, 16, 11, 1, '699.00'),
-(9, 17, 3, 1, '449.00'),
-(10, 18, 9, 1, '699.00'),
-(11, 18, 44, 1, '799.00'),
-(12, 19, 9, 1, '699.00'),
-(13, 19, 10, 1, '699.00');
-
 -- --------------------------------------------------------
 
 --
@@ -168,14 +129,6 @@ CREATE TABLE `payment_modes` (
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `payment_modes`
---
-
-INSERT INTO `payment_modes` (`id`, `name`) VALUES
-(1, 'COD'),
-(2, 'PayPal');
-
 -- --------------------------------------------------------
 
 --
@@ -183,18 +136,8 @@ INSERT INTO `payment_modes` (`id`, `name`) VALUES
 --
 
 CREATE TABLE `statuses` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
+  `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `statuses`
---
-
-INSERT INTO `statuses` (`id`, `name`) VALUES
-(1, 'pending'),
-(2, 'completed'),
-(3, 'cancelled');
 
 -- --------------------------------------------------------
 
@@ -221,16 +164,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `gender`, `username`, `password`, `phoneNumber`, `email`, `address`) VALUES
 (1, ' testy', 'test', '', 'Test12', '$2y$10$hFgZjAXqJKerXB2l5CuUAuho2ryplltqaF0kOLCGc9VxYztOoh5me', '', 'damasojonald@gmail.com', 'test 1232'),
 (2, 'Jon', 'Damaso', '', 'jon0889', '$2y$10$x62s0RDcqL9v.OCiRUFl3eYSknVatrtQLSmjRRPzNUfONMiRK6WRG', '', 'damasojonald@gmail.com', '47 Maginhawa Street Diliman Quezon City'),
-(3, 'Mia', 'Damaso', '', 'admin', '$2y$10$OACIUtMothP9T42116CkN.145dMfEjBd34i2.FUccb.EcS6bVy0gy', '', 'miadamaso@gmail.com', '47 T Hernandez'),
-(4, 'Lito', 'Erilla', '', 'lito123', '$2y$10$mWcIf03CgXZRZ1dHkd77uOapoI28eDDS7W.btpIu.8Z4dlPON3yoC', '', 'lito@gmail.com', 'SM Light manda'),
-(5, 'sample', 'Example', '', 'sample', '$2y$10$H./lm7xGWRy9chA0NT39tenEdgAY1n/79eHDieVbfcgoy5Pmu74zu', '', 'sample@gmail.com', '123 T Hernandez'),
-(6, 'Jek', 'Sample', '', 'samplejek', '$2y$10$Y6isXcB8uv91dDQsDIuPl.ocb7YPXx5dCO8apN6NstNN886id9.Dy', '', 'jeksample@gmail.com', '123 Test Address'),
-(9, 'Juan ', 'Dela Cruz', '', 'juandelacruz', '$2y$10$BL483SLoFDK.AweFwF3mOuD1R7J5.3Yo1WVZUzM2tpszV4ygsXaLe', '', 'juandelacruz@gmail.com', '123 Katipunan St QC'),
-(10, 'Jonald', 'Damaso', '', 'jondamaso', '$2y$10$8Rg.qAFD.e0jo1F/eChS3.wJX5XLleaN81tr1EQSNCZl7L226qi2m', '', 'damasojonald@gmail.com', '47 T Hernandez Old Zanega Mandaluyong City'),
-(18, 'Pat', 'dela cruz', '', 'patdelacruz', '$2y$10$gq7J3w11s6CBkTgJyMv8sOo53RfV2iWs.A/MxRCQO1FOQPRXIxO96', '', 'patdelacruz@gmail.com', 'home1'),
-(19, 'Alvin', 'Santos', '', 'alvinsantos', '$2y$10$8oAnwmIViOu6RoD9MPz.leVUFWKhY.ZdcwvAccs2XMpSpJ2od1xbi', '', 'alvinsantos@gmail.com', '13 Home'),
-(20, 'Jay', 'Santos', '', 'jaysantos', '$2y$10$zE0bgs.xIZADimeqGrb3mONI1pfFc5bqvL1cA/9Hxn06XI03d6Oy6', '', 'jaysantos@gmail.com', '355 Home'),
-(21, 'Jose', 'Santos', '', 'josesantos', '$2y$10$iiuLs8fPGN2tapuNTUu9hOt3YV/N2o0EFjUD0JKDrE9CR/PtSBihW', '', 'josesantos@gmail.com', '3556 Home');
+(3, 'Mia', 'Damaso', '', 'admin', '$2y$10$OACIUtMothP9T42116CkN.145dMfEjBd34i2.FUccb.EcS6bVy0gy', '', 'miadamaso@gmail.com', '47 T Hernandez');
 
 --
 -- Indexes for dumped tables
@@ -293,36 +227,43 @@ ALTER TABLE `users`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `orders_item`
 --
 ALTER TABLE `orders_item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `payment_modes`
 --
 ALTER TABLE `payment_modes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `statuses`
 --
 ALTER TABLE `statuses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- Constraints for dumped tables
 --
@@ -347,6 +288,7 @@ ALTER TABLE `orders`
 ALTER TABLE `orders_item`
   ADD CONSTRAINT `orders_item_fk0` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
   ADD CONSTRAINT `orders_item_fk1` FOREIGN KEY (`item_id`) REFERENCES `items` (`id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

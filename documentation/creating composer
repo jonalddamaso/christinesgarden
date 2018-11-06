@@ -1,0 +1,12 @@
+creating composer.
+
+1. Composer --version - check if there is a composer installed already
+2. go to https://github.com/PHPMailer/PHPMailer
+3. Go to your API directory
+4. type the following command:	composer require phpmailer/phpmailer
+5. open placeorder.php(controller) -> here we'll add the code to send the email.
+
+7. create rows in Both statuses AND payment_mdes tables statuses: pending, completed, cancelled
+payment_modes: COD paypal
+8. In placeorder.php, create a function that genereates a transaction number and create orders and orders_item rows.
+9. Create a view called

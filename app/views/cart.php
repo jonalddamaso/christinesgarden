@@ -49,7 +49,7 @@
 					<tr>
 						<td class="text-right font-weight-bold align-middle" colspan="4">Total</td>
 						<td class="text-right font-weight-bold align-middle" id="total_price">
-							<?php echo $cart_total;?>
+							<?php echo $cart_total; ?>
 						</td>
 					</tr>
 					<tr>

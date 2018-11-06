@@ -29,7 +29,7 @@
             </li>
             <?php } else { ?>
             <li class="nav-item"> 
-                <a href="../views/admin.php" class="nav-link">
+                <a href="../views/profile.php" class="nav-link">
                     Welcome, <?php echo $_SESSION['user']['firstname']?>
                 </a>
             </li>

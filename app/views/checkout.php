@@ -7,10 +7,10 @@
 				header("Location: login.php");
 			}
 
-		?>
-		
+		if(isset($_SESSION['cart'])) {
+?>
 		<form method="POST" action="../controllers/placeorder.php">
-			<!-- TODO placeholder.php controller -->
+			<!-- TODO placeorder.php controller -->
 			<div class="container">
 				<div class = "row">
 					<div class="col-lg-12">
@@ -22,14 +22,10 @@
 					<div class="col-sm-8">
 						<h4>Shipping address</h4>
 						<div class="form-group">
-							<input type="text" class="form-control" name="addressLine1" placeholder="Address 1">
+							<input type="text" class="form-control" name="addressLine1" placeholder="Address 1" value=" <?php echo $_SESSION['user']['address']?>">
+
 						</div>
-						<div class="form-group">
-							<input type="text" class="form-control" name="addressLine2" placeholder="Address 2">
-						</div>
-						<div class="form-group">
-							<input type="text" class="form-control" name="addressLine3" placeholder="Address 3">
-						</div>
+						
 					</div>
 				</div>
 				<div class="row">
@@ -89,4 +85,7 @@
 			</div>
 		</form>
 
-<?php } ?>
+<?php }else{
+header("Location: catalog.php");
+}
+} ?>

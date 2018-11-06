@@ -66,12 +66,24 @@
 											<?php echo $item['name']?>
 										</h4>
 									
-										<p class="card-text overlay">
-										<?php echo $item['description'] ?>
+										<p class="card-text uk-margin-small-right overlay" type="button" uk-toggle="target: #mod<?php echo $item['id']; ?>">
+										<em id="logo">Christine's</em> Garden
 										</p>
+
+										<!-- This is the modal with the outside close button -->
+											<div id="mod<?php echo $item['id']; ?>" uk-modal>
+											    <div class="uk-modal-dialog uk-modal-body">
+											        <button class="uk-modal-close-outside" type="button" uk-close></button>
+											        <h2 class="uk-modal-title">Details:</h2>
+											        <p><img class="card-img-top" src="<?php echo $item['image_path']; ?>">
+											        <?php echo $item['description'] ?>
+											        </p>
+											    </div>
+											</div>
+										<!-- End of Modal -->
 								
 										<p class="card-text mb-0">
-											<h5>Price: Php <strong><?php echo $item['price']; ?></strong></h5>
+											<h5>Price: ₱<strong><?php echo $item['price']; ?></strong></h5>
 										</p>
 
 									
@@ -80,8 +92,9 @@
 							
 									<input type="number" class="mx-1" name="quantity" min="1" placeholder="qty" style="width:60px;">
 
-									<button type="submit" class="btn btn-outline-warning add-to-cart mx-1" data-id = "<?php echo $item['id'];?>">
+									<button type="submit" class="btn btn-outline-warning add-to-cart mx-1" data-id = "<?php echo $item['id'];?>" class="demo uk-button uk-button-default" type="button" onclick="UIkit.notification({message: 'Added to your cart',pos:'top-right',status: 'warning'})">
 										Add to <i class="fas fa-cart-plus"></i></button>
+
 
 								</div>
 							</div>
@@ -92,6 +105,7 @@
 				</div>
 			</div>
 		</div>
+		<!-- go to top -->
 		<button onclick="topFunction()" id="myBtn" title="Go to top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/></svg></button>
 		<script>
 			// When the user scrolls down 20px from the top of the document, show the button
@@ -111,6 +125,8 @@
 			    document.documentElement.scrollTop = 0;
 			}
 			</script>
+
+		<!-- end of go to top -->
 	</div>
 		
 <?php } ?>

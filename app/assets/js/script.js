@@ -105,7 +105,7 @@ $(document).on("DOMContentLoaded", ()=>{
 					if (data == "user_exists"){
 						$("#username").next().text("Username already exists").css("color","red");
 					} else {
-					window.location.replace("login.php");
+					window.location.href="../views/catalog.php";
 					}
 				}
 

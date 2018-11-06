@@ -3,7 +3,7 @@
 	global $conn; ?>
 	<div class="container">
 		<div style="margin: 20px 0 25px 0;" class="col-sm-6 mx-auto">
-			<div class="jumbotron text-center">
+			<div class="jumbotron text-center" id="login_img">
 				<h4>Login</h4>
 			</div>
 			<form action="" method="POST">
