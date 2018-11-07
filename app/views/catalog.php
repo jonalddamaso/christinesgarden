@@ -6,8 +6,53 @@
 
 	<div class="container-fluid">
 		<div class="row">
-			<!-- <div class="col-sm-12"  id="drop-menu"> -->
-			<div class="col-sm-12 uk-card uk-card-default uk-card-body mx-auto" style="z-index: 980;">
+			<nav class="col-sm-12 uk-navbar-container uk-navbar-right" style="z-index: 980;" uk-navbar>
+				        <ul class="uk-navbar-nav">
+				            <li id="li-all">
+				                <a href="catalog.php" class="category category-all">Categories
+				                <div class="uk-navbar-dropdown">
+				                    <ul class="uk-nav uk-navbar-dropdown-nav">
+				                        <li class="list-group-item uk-active" id="li-all">All</li>
+				                </a>
+				                        <?php
+											 $sql_query = "SELECT * FROM categories";
+											 $categories = mysqli_query($conn, $sql_query);
+											 foreach ($categories as $category) { ?>
+											 	<a href="catalog.php? category_id= <?php echo $category['id'];?>" class="category" data-id ="<?php echo $category['id']?>">
+											 	<li class="list-group-item" id="li-all">
+											 		<?php echo $category['name']; ?>
+											 	</li>
+											 	</a>
+											 <?php }
+											?>
+				                    </ul>
+				                </div>
+				             </li>
+				             <li id="li-all">
+
+				                <a href="catalog.php" class="category category-all">Sort 
+				                <div class="uk-navbar-dropdown">
+				                    <ul class="uk-nav uk-navbar-dropdown-nav">
+				                       	<li class="list-group-item" id="li-all">
+									Price(Lowest to Highest)
+								</li>
+								</a>
+								<a href="../controllers/sort.php?sort=desc">
+									<li class="list-group-item" id="li-all">
+										Price(Highest to Lowest)
+									</li>
+								</a>
+					                    </ul>
+				                </div>
+				          				           
+				            	
+				            </li>
+				        </ul>
+				       
+
+		    </nav>
+
+			<!-- <div class="col-sm-12 uk-card uk-card-default uk-card-body mx-auto" style="z-index: 980;">
 				<div class="row">
 					<ul class="list-group mx-auto d-flex justify-content-center" id="ul-all">
 						<a href="catalog.php" class="category category-all">Categories <span class="uk-margin-small-center" uk-icon="icon: triangle-down"></span>
@@ -43,7 +88,7 @@
 							</a>
 					</ul>
 				</div>
-			</div>
+			</div> -->
 
 			<div class="col-sm-12" id="page-catalog">
 				<div class="container">
@@ -66,9 +111,9 @@
 											<?php echo $item['name']?>
 										</h4>
 									
-										<p class="card-text uk-margin-small-right overlay" type="button" uk-toggle="target: #mod<?php echo $item['id']; ?>">
-										<em id="logo">Christine's</em> Garden
-										</p>
+										<div class="card-text uk-margin-small-right overlay uk-position-center" type="button" uk-toggle="target: #mod<?php echo $item['id']; ?>">
+										<em class="text-center" id="logo">Christine's</em> Garden
+										</div>
 
 										<!-- This is the modal with the outside close button -->
 											<div id="mod<?php echo $item['id']; ?>" uk-modal>

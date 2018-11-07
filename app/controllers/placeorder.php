@@ -94,7 +94,7 @@ unset($_SESSION['cart']);
 					$mail->Port = 587; //Port to connect to.
 
 				//Recipients
-					$mail->setFrom($staff_email, "Christine's Game"); //sets the sender's alias.
+					$mail->setFrom($staff_email, "Christine's Garden"); //sets the sender's alias.
 					$mail->addAddress($customer_email);
 
 				//Content

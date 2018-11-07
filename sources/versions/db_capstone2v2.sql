@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 07, 2018 at 09:49 AM
+-- Generation Time: Nov 06, 2018 at 09:42 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 7.0.0
 
@@ -85,7 +85,7 @@ INSERT INTO `items` (`id`, `name`, `description`, `image_path`, `price`, `catego
 (42, 'Philodendron Selloum', 'This plant has elephant ear-like leaves that brings out the exotic lushness of the tropics. Broadleaf Evergreen Plant Type. Approx. 80cm in height. Low maintenance plant that adds life into your home. A perfect decoration to enhance indoor spaces.', '../assets/images/philodendron-selloum.jpg', '1099', 2),
 (43, 'Philodendron Giganteum', 'This plant has heart-shaped leaves with a vibrant mix of greens.Vine/Liana Plant Type. Approx. 45cm in height.Low maintenance plant that adds life into your home. A perfect decoration to enhance indoor spaces.', '../assets/images/philodendron-giganteum.jpg', '699', 2),
 (44, 'Peperomia Obtusifolia', 'This plant has vibrant green soft-surfaced leaves.Also known as the Baby Rubber Plant.Approx. 25cm in height.Low maintenance plant that adds life into your home. A perfect decoration to enhance indoor spaces.', '../assets/images/peperomia-obtusifolia.jpg', '799', 2),
-(45, 'Bromeliad', 'Bromeliad plants will give an exotic touch to your home. Approx. 50cm in height. Low maintenance plant that adds life into your home. A perfect decoration to enhance indoor spaces.', '../assets/images/bromeliad.jpg', '699', 2);
+(45, 'Bromeliad', 'Bromeliad plants will give an exotic touch to your home. Approx. 50cm in height. Low maintenance plant that adds life into your home. A perfect decoration to enhance indoor spaces.', '../assets/images/bromeliad.jpg', '699', 2);
 
 -- --------------------------------------------------------
 
@@ -122,8 +122,7 @@ INSERT INTO `orders` (`id`, `user_id`, `transaction_code`, `purchase_date`, `sta
 (16, 4, '949EF3-1541475269', '2018-11-05 20:34:29', 1, 1),
 (17, 4, '6A5171-1541479910', '2018-11-05 21:51:50', 1, 1),
 (18, 10, '5D5EDA-1541482784', '2018-11-05 22:39:44', 1, 1),
-(19, 10, '3C68E2-1541482896', '2018-11-05 22:41:36', 1, 1),
-(20, 2, 'D69B4C-1541556608', '2018-11-06 19:10:08', 1, 1);
+(19, 10, '3C68E2-1541482896', '2018-11-05 22:41:36', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -156,8 +155,7 @@ INSERT INTO `orders_item` (`id`, `order_id`, `item_id`, `quantity`, `price`) VAL
 (10, 18, 9, 1, '699.00'),
 (11, 18, 44, 1, '799.00'),
 (12, 19, 9, 1, '699.00'),
-(13, 19, 10, 1, '699.00'),
-(14, 20, 5, 1, '550.00');
+(13, 19, 10, 1, '699.00');
 
 -- --------------------------------------------------------
 
@@ -232,8 +230,7 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `gender`, `username`, `passw
 (18, 'Pat', 'dela cruz', '', 'patdelacruz', '$2y$10$gq7J3w11s6CBkTgJyMv8sOo53RfV2iWs.A/MxRCQO1FOQPRXIxO96', '', 'patdelacruz@gmail.com', 'home1'),
 (19, 'Alvin', 'Santos', '', 'alvinsantos', '$2y$10$8oAnwmIViOu6RoD9MPz.leVUFWKhY.ZdcwvAccs2XMpSpJ2od1xbi', '', 'alvinsantos@gmail.com', '13 Home'),
 (20, 'Jay', 'Santos', '', 'jaysantos', '$2y$10$zE0bgs.xIZADimeqGrb3mONI1pfFc5bqvL1cA/9Hxn06XI03d6Oy6', '', 'jaysantos@gmail.com', '355 Home'),
-(21, 'Jose', 'Santos', '', 'josesantos', '$2y$10$iiuLs8fPGN2tapuNTUu9hOt3YV/N2o0EFjUD0JKDrE9CR/PtSBihW', '', 'josesantos@gmail.com', '3556 Home'),
-(22, 'Jem', 'Deguzman', '', 'jemdeguz', '$2y$10$757WTcX9.VpMMvW0U0C81u2aVIxa8eKH9COvSUpbvSJhRJLAMMeVi', '', '', '');
+(21, 'Jose', 'Santos', '', 'josesantos', '$2y$10$iiuLs8fPGN2tapuNTUu9hOt3YV/N2o0EFjUD0JKDrE9CR/PtSBihW', '', 'josesantos@gmail.com', '3556 Home');
 
 --
 -- Indexes for dumped tables
@@ -300,17 +297,17 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `orders_item`
 --
 ALTER TABLE `orders_item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `payment_modes`
 --
@@ -325,7 +322,7 @@ ALTER TABLE `statuses`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- Constraints for dumped tables
 --
