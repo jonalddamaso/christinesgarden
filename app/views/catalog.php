@@ -30,14 +30,14 @@
 				             </li>
 				             <li id="li-all">
 
-				                <a href="catalog.php" class="category category-all">Sort 
+				                <a href="../controllers/sort.php?sort=desc" class="category category-all">Sort 
 				                <div class="uk-navbar-dropdown">
 				                    <ul class="uk-nav uk-navbar-dropdown-nav">
 				                       	<li class="list-group-item" id="li-all">
 									Price(Lowest to Highest)
 								</li>
 								</a>
-								<a href="../controllers/sort.php?sort=desc">
+								<a href="../controllers/sort.php?sort=asc">
 									<li class="list-group-item" id="li-all">
 										Price(Highest to Lowest)
 									</li>
@@ -45,14 +45,15 @@
 					                    </ul>
 				                </div>
 				          				           
-				            	
 				            </li>
+				            
+
 				        </ul>
 				       
 
 		    </nav>
 
-			<!-- <div class="col-sm-12 uk-card uk-card-default uk-card-body mx-auto" style="z-index: 980;">
+			 <!-- <div class="col-sm-12 uk-card uk-card-default uk-card-body mx-auto" style="z-index: 980;">
 				<div class="row">
 					<ul class="list-group mx-auto d-flex justify-content-center" id="ul-all">
 						<a href="catalog.php" class="category category-all">Categories <span class="uk-margin-small-center" uk-icon="icon: triangle-down"></span>
@@ -88,7 +89,7 @@
 							</a>
 					</ul>
 				</div>
-			</div> -->
+			</div>   -->
 
 			<div class="col-sm-12" id="page-catalog">
 				<div class="container">
@@ -111,9 +112,11 @@
 											<?php echo $item['name']?>
 										</h4>
 									
-										<div class="card-text uk-margin-small-right overlay uk-position-center" type="button" uk-toggle="target: #mod<?php echo $item['id']; ?>">
-										<em class="text-center" id="logo">Christine's</em> Garden
-										</div>
+										<p class="card-text uk-margin-small-right overlay" uk-toggle="target: #mod<?php echo $item['id']; ?>">
+										<div class="uk-position-center" id="pin">
+                   							 <span uk-icon ="icon: plus; ratio: 2" uk-toggle="target: #mod<?php echo $item['id']; ?>"></span>
+                						</div>
+										</p>
 
 										<!-- This is the modal with the outside close button -->
 											<div id="mod<?php echo $item['id']; ?>" uk-modal>

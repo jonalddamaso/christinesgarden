@@ -8,8 +8,9 @@
 		}
 	}
 
+	mysqli_close($conn);
 	header("Location:" . $_SERVER["HTTP_REFERER"]);
-	// goes to the page taht called this file.
+	// goes to the page that called this file.
 
 
 ?>

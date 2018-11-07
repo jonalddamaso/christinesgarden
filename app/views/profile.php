@@ -42,7 +42,7 @@
 							<input type="email" name="email" class="form-control" id="email" value="<?php echo $user['email']; ?>" disabled>
 							<span class="validation"></span><br>
 
-							<label for="address">E-mail Address</label>
+							<label for="address">Home Address</label>
 							<input type="text" name="address" class="form-control" id="address" value="<?php echo $user['address']; ?>" disabled>
 							<span class="validation"></span><br>
 

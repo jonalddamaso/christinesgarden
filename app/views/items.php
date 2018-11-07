@@ -37,9 +37,9 @@
 									<td><?php echo $item['name']; ?></td>
 									<td><?php echo '₱'. $item['price']; ?></td>
 									<td><?php echo $item['description']; ?></td>
-									<td><a href="./edit_item.php?id=<?php echo $item['id'] ?>" class ="btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 19h-4v-2h4v2zm2.946-4.036l3.107 3.105-4.112.931 1.005-4.036zm12.054-5.839l-7.898 7.996-3.202-3.202 7.898-7.995 3.202 3.201zm-6 8.92v3.955h-16v-20h7.362c4.156 0 2.638 6 2.638 6s2.313-.635 4.067-.133l1.952-1.976c-2.214-2.807-5.762-5.891-7.83-5.891h-10.189v24h20v-7.98l-2 2.025z"/></svg></a>
+									<td><a href="./edit_item.php?id=<?php echo $item['id'] ?>" class ="btn uk-icon-link uk-margin-small-right" uk-icon="file-edit"></a>
 									<!-- <a href="../controllers/delete_item.php?id=<?php echo $item['id']; ?>" class="btn btn-danger uk-button uk-button-default demo" onclick="UIkit.notification({message: '<span uk-icon=\'icon: check\'></span> Deleted Item'})"><i class="fas fa-times"></i></a> -->
-									<a class="uk-button uk-button-default btn" href="#delete" uk-toggle><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 11.293l10.293-10.293.707.707-10.293 10.293 10.293 10.293-.707.707-10.293-10.293-10.293 10.293-.707-.707 10.293-10.293-10.293-10.293.707-.707 10.293 10.293z"/></svg></a>
+									<a class="uk-button uk-button-default btn uk-icon-link" href="#delete" uk-toggle uk-icon="trash">
 									</td>
 									
 									<!-- start of modal -->
