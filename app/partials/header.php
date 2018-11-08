@@ -7,6 +7,9 @@
     </button>
     <div class="collapse navbar-collapse text-right" id="navbar">
         <ul class="navbar-nav ml-auto">
+           
+            <?php if(!isset($_SESSION['user']) || (isset($_SESSION['user']) && $_SESSION['user']['role'] == 2)){ ?>
+    
             <li class="nav-item">
                 <a href="../views/catalog.php" class="nav-link">Catalog</a>              
             </li>
@@ -20,6 +23,17 @@
                 </span>
                 </a>
             </li>
+            <?php } elseif(isset($_SESSION['user']) && $_SESSION['user']['role'] == 1) { ?> 
+            <li class="nav-item">
+                <a class="nav-link" href="../views/items.php">Admin</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../views/users.php">Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../views/orders.php">Orders</a>
+            </li>
+            <?php } ?>  
             <?php if(!isset($_SESSION['user'])) { ?>
              <li class="nav-item">
                 <a href="../views/login.php" class="nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>              

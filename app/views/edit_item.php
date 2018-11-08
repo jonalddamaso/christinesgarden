@@ -6,11 +6,17 @@
 	$result = mysqli_query($conn, $edit_item_query);
 	$item = mysqli_fetch_assoc($result);
  ?>
+
+<!-- place checking here -->
+<?php if(isset($_SESSION['user']) && $_SESSION['user']['role'] == 1) { ?>
+<!-- end checking here -->
+ 
  <div class="container py-2">
  	<div class="row">
  		<div class="col-lg-8 offset-lg-2">
  			<form action="../controllers/process_edit_item.php" method="POST" enctype="multipart/form-data">
  			<input type="number" name="id" value="<?php echo $item_id; ?>" hidden>
+ 			<h4>Item Update/Change</h4>
  			
  			<div class="form-group">
  				<label for="name">Name:</label>
@@ -45,18 +51,24 @@
 						?>
 					</select>
 			</div>
-			<div class="form-group">
-						<label for="image">Image:</label>
-						<input type="file" class="form-control" name="image" required>
+					<div class="form-group">
+						<input type="file" class="form-control" name="image" value="<?php echo $item['image_path']; ?>" required>
 					</div>
 					<!-- submitting edited item -->
 					<button type="submit" class="btn btn-primary">Edit Item</button>
 					<a class="btn btn-secondary"  href="items.php">Cancel</a>
-				</div>
+		</div>
 
 				
  			</form>
  		</div>
  	</div>
  </div>
+
+<!-- place else statment here -->
+<?php } else {
+	header("Location: ./error.php");
+}
+?>
+
 <?php } ?>

@@ -8,13 +8,14 @@
 	$lastname = $_POST['lastname'];
 	$email = $_POST['email'];
 	$address = $_POST['address'];
+	$role = 2;
 
 	$sql_query = "SELECT * FROM users WHERE username = '$username'";
 	$result = mysqli_query($conn, $sql_query);
 	if(mysqli_num_rows($result) > 0){
 		die("user_exists");
 	} else {
-		$insert_query = "INSERT INTO users(username, password, firstname, lastname, email, address) VALUES ('$username', '$password', '$firstname', '$lastname', '$email', '$address');";
+		$insert_query = "INSERT INTO users(username, password, firstname, lastname, email, address, role) VALUES ('$username', '$password', '$firstname', '$lastname', '$email', '$address', '$role');";
 		$result = mysqli_query($conn, $insert_query);
 
 	}

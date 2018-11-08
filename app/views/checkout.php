@@ -1,7 +1,13 @@
 <?php require_once "../partials/template.php";
 	function get_page_content(){
 		global $conn; ?>
-		
+			
+		<!-- place checking here -->
+		<?php if(!isset($_SESSION['user']) || (isset($_SESSION['user']) && $_SESSION['user']['role'] == 2)) { ?>
+		<!-- end checking here -->
+
+
+
 		<?php 
 			if(!isset($_SESSION['user'])){
 				header("Location: login.php");
@@ -89,3 +95,8 @@
 header("Location: catalog.php");
 }
 } ?>
+
+<?php } else {
+	header("Location: ./error.php");
+}
+?>

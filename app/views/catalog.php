@@ -4,6 +4,10 @@
 		global $conn; //refers to $conn outside of my function.
 		?>
 
+<!-- place checking here -->
+<?php if(!isset($_SESSION['user']) || (isset($_SESSION['user']) && $_SESSION['user']['role'] == 2)) { ?>
+<!-- end checking here -->
+
 	<div class="container-fluid">
 		<div class="row">
 			<nav class="col-sm-12 uk-navbar-container uk-navbar-right" style="z-index: 980;" uk-navbar>
@@ -30,14 +34,14 @@
 				             </li>
 				             <li id="li-all">
 
-				                <a href="../controllers/sort.php?sort=desc" class="category category-all">Sort 
+				                <a href="../controllers/sort.php?sort=asc" class="category category-all">Sort 
 				                <div class="uk-navbar-dropdown">
 				                    <ul class="uk-nav uk-navbar-dropdown-nav">
 				                       	<li class="list-group-item" id="li-all">
 									Price(Lowest to Highest)
 								</li>
 								</a>
-								<a href="../controllers/sort.php?sort=asc">
+								<a href="../controllers/sort.php?sort=desc">
 									<li class="list-group-item" id="li-all">
 										Price(Highest to Lowest)
 									</li>
@@ -53,44 +57,7 @@
 
 		    </nav>
 
-			 <!-- <div class="col-sm-12 uk-card uk-card-default uk-card-body mx-auto" style="z-index: 980;">
-				<div class="row">
-					<ul class="list-group mx-auto d-flex justify-content-center" id="ul-all">
-						<a href="catalog.php" class="category category-all">Categories <span class="uk-margin-small-center" uk-icon="icon: triangle-down"></span>
-						<div uk-dropdown="mode: click" id="drop">
-							<li class="list-group-item" id="li-all">
-								All
-							</li>
-						</a>
-						<?php
-						 $sql_query = "SELECT * FROM categories";
-						 $categories = mysqli_query($conn, $sql_query);
-						 foreach ($categories as $category) { ?>
-						 	<a href="catalog.php? category_id= <?php echo $category['id'];?>" class="category" data-id ="<?php echo $category['id']?>">
-						 	<li class="list-group-item" id="li-all">
-						 		<?php echo $category['name']; ?>
-						 	</li>
-						 	</a>
-						 <?php }
-						?>
-					</ul>
-
-					<ul class="list-group mx-auto d-flex justify-content-center" id="ul-all">
-							<a href="../controllers/sort.php?sort=asc"> Sort <span class="uk-margin-small-center" uk-icon="icon: triangle-down"></span>
-						<div uk-dropdown="mode: click" id="drop">
-								<li class="list-group-item" id="li-all">
-									Price(Lowest to Highest)
-								</li>
-							</a>
-							<a href="../controllers/sort.php?sort=desc">
-								<li class="list-group-item" id="li-all">
-									Price(Highest to Lowest)
-								</li>
-							</a>
-					</ul>
-				</div>
-			</div>   -->
-
+			 
 			<div class="col-sm-12" id="page-catalog">
 				<div class="container">
 				<?php 
@@ -108,9 +75,10 @@
 							<div class="card h-100  zoomIn animated">
 								<img class="card-img-top" src="<?php echo $item['image_path']; ?>">
 								<div class="card-body">	
-										<h4 class="card-title">
+										<div class="card-text text-center">
 											<?php echo $item['name']?>
-										</h4>
+											<h5>Price: ₱<strong><?php echo $item['price']; ?></strong></h5>
+										</div>
 									
 										<p class="card-text uk-margin-small-right overlay" uk-toggle="target: #mod<?php echo $item['id']; ?>">
 										<div class="uk-position-center" id="pin">
@@ -129,20 +97,15 @@
 											    </div>
 											</div>
 										<!-- End of Modal -->
-								
-										<p class="card-text mb-0">
-											<h5>Price: ₱<strong><?php echo $item['price']; ?></strong></h5>
-										</p>
 
-									
 								</div>
+
 								<div class="card-footer mx-auto d-flex justify-content-center">
 							
 									<input type="number" class="mx-1" name="quantity" min="1" placeholder="qty" style="width:60px;">
 
-									<button type="submit" class="btn btn-outline-warning add-to-cart mx-1" data-id = "<?php echo $item['id'];?>" class="demo uk-button uk-button-default" type="button" onclick="UIkit.notification({message: 'Added to your cart',pos:'top-right',status: 'warning'})">
+									<button type="submit" class="btn btn-outline-warning add-to-cart mx-1" data-id = "<?php echo $item['id'];?>" class="demo uk-button uk-button-default" type="button" onclick="UIkit.notification({message: '<span uk-icon=\'icon: check\'></span> Added to your cart',pos:'top-right',status: 'warning',timeout: 1000})">
 										Add to <i class="fas fa-cart-plus"></i></button>
-
 
 								</div>
 							</div>
@@ -176,7 +139,12 @@
 
 		<!-- end of go to top -->
 	</div>
-		
+	
+<?php } else {
+	header("Location: ./error.php");
+}
+?>
+
 <?php } ?>
 
 

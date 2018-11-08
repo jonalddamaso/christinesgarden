@@ -1,6 +1,11 @@
 <?php require_once "../partials/template.php"; ?>
 <?php function get_page_content(){
 	global $conn; ?>
+	<!-- place checking here -->
+<?php if(!isset($_SESSION['user']) || (isset($_SESSION['user']) && $_SESSION['user']['role'] == 2)) { ?>
+<!-- end checking here -->
+
+
 	<div class= "container my-4">
 		<div class="row">
 			<div class="col-lg-12">
@@ -38,12 +43,9 @@
 							<td class="item_price text-right align-middle"><?php echo $item['price']; ?></td>
 							<td class="item_quantity align-middle"><input type="number" value="<?php echo $qty; ?>" class="form-control text-right align-middle mx-auto" min="1" style="width:150px" data-id="<?php echo $id; ?>"></td>
 							<td class="item_subtotal text-right align-middle"><?php echo $subTotal; ?></td>
-							<td class="item_action text-center align-middle"><button class="btn btn-danger item-remove" data-id="<?php echo $id; ?>">X</button></td>
-							</tr>
-					
-					
-					
-
+							<td class="item_action text-center align-middle"><button class="btn btn-danger item-remove" id="removed" data-id="<?php echo $id; ?>">X</button></td>
+							</tr>					
+						<?php } ?>
 				</tbody>
 				<tfoot>
 
@@ -58,7 +60,7 @@
 							<a href="checkout.php" class="btn btn-primary">Proceed to Checkout</a>
 						</td>
 					</tr>
-					<?php }} ?>
+					<?php } ?>
 				</tfoot>
 				<?php
 				} else { 
@@ -68,4 +70,11 @@
 			</table>
 		</div>
 	</div>
+
+<?php } else {
+	header("Location: ./error.php");
+}
+?>
+
+
 <?php  } ?>

@@ -1,0 +1,37 @@
+<!-- <div class="col-sm-12 uk-card uk-card-default uk-card-body mx-auto" style="z-index: 980;">
+				<div class="row">
+					<ul class="list-group mx-auto d-flex justify-content-center" id="ul-all">
+						<a href="catalog.php" class="category category-all">Categories <span class="uk-margin-small-center" uk-icon="icon: triangle-down"></span>
+						<div uk-dropdown="mode: click" id="drop">
+							<li class="list-group-item" id="li-all">
+								All
+							</li>
+						</a>
+						<?php
+						 $sql_query = "SELECT * FROM categories";
+						 $categories = mysqli_query($conn, $sql_query);
+						 foreach ($categories as $category) { ?>
+						 	<a href="catalog.php? category_id= <?php echo $category['id'];?>" class="category" data-id ="<?php echo $category['id']?>">
+						 	<li class="list-group-item" id="li-all">
+						 		<?php echo $category['name']; ?>
+						 	</li>
+						 	</a>
+						 <?php }
+						?>
+					</ul>
+
+					<ul class="list-group mx-auto d-flex justify-content-center" id="ul-all">
+							<a href="../controllers/sort.php?sort=asc"> Sort <span class="uk-margin-small-center" uk-icon="icon: triangle-down"></span>
+						<div uk-dropdown="mode: click" id="drop">
+								<li class="list-group-item" id="li-all">
+									Price(Lowest to Highest)
+								</li>
+							</a>
+							<a href="../controllers/sort.php?sort=desc">
+								<li class="list-group-item" id="li-all">
+									Price(Highest to Lowest)
+								</li>
+							</a>
+					</ul>
+				</div>
+			</div>   -->

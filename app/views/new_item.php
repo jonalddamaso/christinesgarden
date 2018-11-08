@@ -1,6 +1,11 @@
 <?php require_once "../partials/template.php"; ?>
 <?php function get_page_content(){ ?>
 <?php global $conn; ?>
+
+<!-- place checking here -->
+<?php if(isset($_SESSION['user']) && $_SESSION['user']['role'] == 1) { ?>
+<!-- end checking here -->
+
 <div class="container">
 	<div class="row">
 		<div class="col-lg-8 offset-lg-2">
@@ -40,11 +45,19 @@
 					</div>
 					<!-- submitting new item -->
 					<button type="submit" class="btn btn-primary uk-button uk-button-default demo" onclick="UIkit.notification({message: '<span uk-icon=\'icon: check\'></span> Added New Item'})">Add new item</button>
+					<a class="btn btn-secondary"  href="items.php">Cancel</a>
 				</div>
 
 			</form>
 		</div>
 	</div>
 </div>
+
+<!-- place else statment here -->
+<?php } else {
+	header("Location: ./error.php");
+}
+
+?>
 
 <?php } ?>

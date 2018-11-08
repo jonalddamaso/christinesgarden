@@ -112,6 +112,13 @@ $(document).on("DOMContentLoaded", ()=>{
 			});
 		}
 	});
+	// removed reload
+	// $(document).off('click','.item-remove').on('click', '.item-remove', function(e){
+	// 	/*window.location.reload();*/
+	// 	console.log('clicked');
+	// });
+
+
 
 	//adding new items
 	$("#add_item").click((e) => {
@@ -249,4 +256,9 @@ $(document).on("DOMContentLoaded", ()=>{
 			}
 		});
 	});
+
+	$('#removed').click(function(e){
+		window.location.reload();
+	});
 });
+
