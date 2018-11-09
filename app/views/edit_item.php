@@ -55,7 +55,7 @@
 						<input type="file" class="form-control" name="image" value="<?php echo $item['image_path']; ?>" required>
 					</div>
 					<!-- submitting edited item -->
-					<button type="submit" class="btn btn-primary">Edit Item</button>
+					<button type="submit" class="btn btn-primary edit-item">Edit Item</button>
 					<a class="btn btn-secondary"  href="items.php">Cancel</a>
 		</div>
 

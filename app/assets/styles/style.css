@@ -69,11 +69,18 @@
   border:hsla(155, 14%, 11%, 0.51);
   list-style: none;
   color: black;
+  text-decoration: none;
 
 }
+a {
+  text-decoration-color: hsla(83, 57%, 54%, 0.76) !important; 
+}
+
 #ul-all {
   background-color: transparent;
   border:none;
+  list-style: none;
+   text-decoration: none;
 }
 #drop {
   background-color: hsla(155, 14%, 11%, 0.51);
@@ -123,9 +130,12 @@ background-color: #F3E9D2;
 border: #F3E9D2 solid;
 box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 padding: 10px;
-
+opacity: 1;
 }
 
+.card-footer {
+opacity: 0;
+}
 
 .overlay {
   color: hsla(0, 0%, 4%, 0.51);
@@ -136,6 +146,12 @@ padding: 10px;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.quantity-box {
+  background-color: transparent;
+  border: transparent;
   text-align: center;
 }
 
@@ -180,4 +196,27 @@ Font-Size: 16px; */
   background-color: #555;
 }
 
- 
+
+#cart-img {
+  position:relative;
+  display:inline-block;
+ }
+
+ #cart-count {
+    position: absolute;
+    right:-7px;
+    top: -5px;
+    /*text-align: center;*/
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    color:white;
+    /*padding:5px 10px;*/
+    font-size:5px;
+    background-color: hsla(83, 57%, 54%, 0.76);
+ }
+
+button > .status {
+  background-color: hsla(83, 57%, 54%, 0.76);
+  color:white;
+}

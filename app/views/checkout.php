@@ -13,7 +13,7 @@
 				header("Location: login.php");
 			}
 
-		if(isset($_SESSION['cart'])) {
+if(isset($_SESSION['cart'])) {
 ?>
 		<form method="POST" action="../controllers/placeorder.php">
 			<!-- TODO placeorder.php controller -->
@@ -28,10 +28,21 @@
 					<div class="col-sm-8">
 						<h4>Shipping address</h4>
 						<div class="form-group">
-							<input type="text" class="form-control" name="addressLine1" placeholder="Address 1" value=" <?php echo $_SESSION['user']['address']?>">
-
-						</div>
-						
+							<input type="text" class="form-control" name="addressLine1" placeholder="<?php echo $_SESSION['user']['address']?>">
+						</div>	
+					</div>
+					<div class="col-sm-4">
+						<h4>Payment Method</h4>
+						<select class="form-control" id="payment_mode" name="payment_mode">
+							<?php
+								$payment_mode_query = "SELECT * FROM payment_modes;";
+								$payment_modes = mysqli_query($conn, $payment_mode_query);
+								foreach ($payment_modes as $payment_mode) {
+									extract($payment_mode);
+									echo "<option value='$id'>$name </option>";
+								}
+							 ?>
+						</select>
 					</div>
 				</div>
 				<div class="row">
@@ -90,13 +101,15 @@
 				</div>
 			</div>
 		</form>
+<?php 
+}else{
+		header("Location: catalog.php");
+	
+	}
 
-<?php }else{
-header("Location: catalog.php");
-}
-} ?>
-
-<?php } else {
-	header("Location: ./error.php");
+	}else{
+		header("Location: ./error.php");
+	
+	}
 }
 ?>

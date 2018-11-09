@@ -260,5 +260,9 @@ $(document).on("DOMContentLoaded", ()=>{
 	$('#removed').click(function(e){
 		window.location.reload();
 	});
+
+	$('.edit-item').click(function(e){
+		window.location.reload();
+	});
 });
 

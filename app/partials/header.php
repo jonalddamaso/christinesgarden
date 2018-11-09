@@ -13,14 +13,15 @@
             <li class="nav-item">
                 <a href="../views/catalog.php" class="nav-link">Catalog</a>              
             </li>
-            <li class="nav-item">
-                <a href="../views/cart.php" class="nav-link"><i class="fas fa-shopping-cart"></i> <span class="badge bg-light text-dark" id="cart-count">
+            <li class="nav-item" id="cart-img">
+                <a href="../views/cart.php" class="nav-link"><i class="fas fa-shopping-cart" ></i><span class="uk-badge" id="cart-count">
                     <?php if(isset($_SESSION['cart'])){
                         echo array_sum($_SESSION['cart']);
                     } else {
                         echo 0;
                     } ?>
                 </span>
+
                 </a>
             </li>
             <?php } elseif(isset($_SESSION['user']) && $_SESSION['user']['role'] == 1) { ?> 

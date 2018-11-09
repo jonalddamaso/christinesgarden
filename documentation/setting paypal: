@@ -1,0 +1,138 @@
+setting paypal:
+
+1. Create a folder in controllers called paypal, and inside the folder, create a file called start.php, here we provide the client ID and secret obtained from paypal earlier.
+
+2. Open checkout.php and include a select for the payment options
+3. Open placeorder.php and replace the default value of $payment_mode and move the use php mailer on top
+4. include ALL the necessary classes needed by PayPal
+5. Create an if-else statement with the condition checking our payment mode. place it after pulling all the POST data
+6. Move everything after the if statement into the true condition.
+7. In the else-statment, here we'll palce paypal
+7. Create a controller called pay.php
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$trans_code = generate_transaction_code();
+	// create order details
+	$_SESSION['trans_code'] = $trans_code;
+	
+
+	// echo "User id: ". $user_id;
+	// echo "Purchase date: ". $purchase_date;
+	// echo "Address: ". $address;
+	// echo "Trans code: ". $trans_code;
+
+	//create  new order by create the sql statement to add a new entry in the orders tble.
+
+	$sql_query = "INSERT INTO orders (user_id, transaction_code, purchase_date, status_id, payment_mod_id) VALUES ('$user_id', '$trans_code', '$purchase_date', '$status_id', '$payment_mode_id');";
+
+	$result = mysqli_query($conn, $sql_query);
+	//we need to get the order_id of the new order created, why?
+	//this is to create the order details.
+	//To get the previously created order_id
+	$new_order_id = mysqli_insert_id($conn); //this looks for the most recently created id number and assigns it to $new_order_id
+
+	//Populate the order items
+	if($result){
+		//SESSION cart is just an indexed array for quantities and each index correspond to a specific item_id
+		foreach ($_SESSION['cart'] as $item_id => $qty) {
+			$item_query = "SELECT price FROM items WHERE id = '$item_id';";
+			$item_result = mysqli_query($conn, $item_query);
+			$item = mysqli_fetch_assoc($item_result);
+
+			$sql = "INSERT INTO orders_item (order_id, item_id, quantity, price) VALUES ('$new_order_id','$item_id','$qty', '". $item['price']. "');";
+			$ord_detail_result = mysqli_query($conn, $sql);
+			if($ord_detail_result){
+			}
+		}  
+	}
+
+	//empties the cart.
+	unset($_SESSION['cart']);
+
+					
+					//create a new instance of phpmailer.
+					$mail = new PHPMailer(true);
+
+					//Email contents
+					$staff_email = 'christines0garden@gmail.com'; //this is the email you created earlier
+					$customer_email = $_SESSION['user']['email']; //Email of the user that is currently logged in.
+					$email_subject = "Christine's Garden - Order confirmation!"; //This is  up to you.
+					$email_body = "<h3>Reference Number: $trans_code</h3> <p>Ship to: $address</p>";
+
+					//Actual Sending of email
+					try {
+					 //Server setting
+						// $mail->SMTPDebug = 4; //Enables us to see detailed debug output;
+						//Removing debug will remove the messages and route us to confirmation
+						$mail->isSMTP(); //sets mailer to use SMTP to send email
+						$mail->Host = 'smtp.gmail.com'; //uses Gmail's SMTP server
+						$mail->SMTPAuth = true; //Enables SMTP authentication
+						$mail->Username = $staff_email; //defines the email's username
+						$mail->Password = "garden080121"; //defines the email's password , password is the password you created for the email.
+						$mail->SMTPSecure = 'tls'; //allows for TLS encrption, we can also use SSL
+						$mail->Port = 587; //Port to connect to.
+
+					//Recipients
+						$mail->setFrom($staff_email, "Christine's Garden"); //sets the sender's alias.
+						$mail->addAddress($customer_email);
+
+					//Content
+						$mail->isHTML(true); //Sets email format to HTML
+						$mail->Subject = $email_subject;
+						$mail->Body = $email_body;
+
+						
+					
+
+						$mail->send();
+
+
+					} catch (Exception $e){
+						echo "Message couldn't be sent. Mailer Error: ". $mail->ErrorInfo;
+					}
+					//try catch: it performs a block of code and if it fails it catches the eroor message.
+
+					//End send email
+
+		mysqli_close($conn);
+		header('location: ../views/confirmation.php');

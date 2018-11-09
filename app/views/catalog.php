@@ -13,7 +13,7 @@
 			<nav class="col-sm-12 uk-navbar-container uk-navbar-right" style="z-index: 980;" uk-navbar>
 				        <ul class="uk-navbar-nav">
 				            <li id="li-all">
-				                <a href="catalog.php" class="category category-all">Categories
+				                <a href="catalog.php" class="category category-all" id="category-all">Categories
 				                <div class="uk-navbar-dropdown">
 				                    <ul class="uk-nav uk-navbar-dropdown-nav">
 				                        <li class="list-group-item uk-active" id="li-all">All</li>
@@ -73,9 +73,9 @@
 					foreach ($items as $item) { ?>
 						<div class="col-sm-3 py-2">
 							<div class="card h-100  zoomIn animated">
-								<img class="card-img-top" src="<?php echo $item['image_path']; ?>">
+								<img class="card-img" src="<?php echo $item['image_path']; ?>">
 								<div class="card-body">	
-										<div class="card-text text-center">
+										<div class="card-text text-center uk-position-bottom">
 											<?php echo $item['name']?>
 											<h5>Price: ₱<strong><?php echo $item['price']; ?></strong></h5>
 										</div>
@@ -102,9 +102,9 @@
 
 								<div class="card-footer mx-auto d-flex justify-content-center">
 							
-									<input type="number" class="mx-1" name="quantity" min="1" placeholder="qty" style="width:60px;">
+									<input type="number" class="quantity-box mx-1" uk-tooltip="title: Add quantity; pos: bottom" name="quantity" min="1" placeholder="QTY" style="width:60px;">
 
-									<button type="submit" class="btn btn-outline-warning add-to-cart mx-1" data-id = "<?php echo $item['id'];?>" class="demo uk-button uk-button-default" type="button" onclick="UIkit.notification({message: '<span uk-icon=\'icon: check\'></span> Added to your cart',pos:'top-right',status: 'warning',timeout: 1000})">
+									<button type="submit" class="btn btn-outline-warning add-to-cart mx-1" data-id = "<?php echo $item['id'];?>" class="demo uk-button uk-button-default" type="button" onclick="UIkit.notification({message: '<span uk-icon=\'icon: check\'></span> Added to your cart',pos:'bottom-right',status: 'success',timeout: 1000})">
 										Add to <i class="fas fa-cart-plus"></i></button>
 
 								</div>
