@@ -16,19 +16,21 @@
 					<thead class="modify-header">
 						<tr class="text-center">
 							<td>Transaction Code</td>
+							<td>Purchase Date</td>
 							<td>Status</td>
 							<td>Actions</td>
 						</tr>
 					</thead>
 					<tbody class="modify-body">
 						<?php 
-						$order_query = "SELECT o.id, o.transaction_code, s.name AS status FROM orders o JOIN statuses s ON (o.status_id = s.id);";
+						$order_query = "SELECT o.id, o.transaction_code, o.purchase_date, s.name AS status FROM orders o JOIN statuses s ON (o.status_id = s.id);";
 						$orders = mysqli_query($conn, $order_query);
 
 						foreach ($orders as $indiv_order) { ?>
 
 							<tr>
 								<td><?php echo $indiv_order['transaction_code']; ?></td>
+								<td><?php echo $indiv_order['purchase_date']; ?></td>
 								<td><?php echo $indiv_order['status']; ?></td>
 								<td><?php if ($indiv_order['status'] == "pending") { ?> 
 								<a href="../controllers/complete_order.php?id=<?php echo $indiv_order['id']?>" class="btn btn-success"><span uk-icon="check" uk-tooltip='title: Complete Order; pos: bottom'></span></a>

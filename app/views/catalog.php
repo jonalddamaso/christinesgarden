@@ -194,9 +194,11 @@
 		<!-- end of go to top -->
 	</div>
 	
-<?php } else {
-	header("Location: ./error.php");
-}
+<?php } else { ?>
+<script type="text/javascript">
+	window.location.href = "./error.php" ;
+</script>
+<?php }
 ?>
 
 <?php } ?>

@@ -2,7 +2,7 @@
 <?php function get_page_content() { ?>
 	<?php global $conn; ?>
 
- <div id="myPageContent" class="container-fluid">
+ <div id="myPageContent" class="container-fluid home-wrapper">
 
 		<section id="home">
 			<div id="textSlider" class="row">
@@ -14,7 +14,7 @@
 						<div class="scroller">
 							<div class="inner">
 								<p>Improve your office</p>
-								<p>Welcome! <?php echo $_SESSION['user']['firstname']?></p>
+								<p>Welcome! <em class="welcome-user"><?php echo $_SESSION['user']['firstname']?></em></p>
 								<p>Enliven your space</p>
 								<p>Potted Indoor Plants</p>
 							</div>

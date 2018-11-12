@@ -8,7 +8,7 @@
 
 <div class="container py-2">
 	<div class="row">
-		<div class="container">
+		<div class="container mx-auto">
 			<div class="row">
 				<div class="col-lg-12">
 					<h4>Modification Page</h4>

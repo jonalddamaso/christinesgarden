@@ -12,21 +12,21 @@ $(document).on("DOMContentLoaded", ()=>{
 		let errors = 0;
 
 		// username
-		if(!$("#username").val().match(username)){
+		if(!$("#register_username").val().match(username)){
 			//uses regex to match to the value of the username field.
-			$("#username").next().text("Please provide a valid username").css("color","red");
+			$("#register_username").next().text("Please provide a valid username").css("color","red");
 			errors++;
 		} else {
-			$("#username").next().text('');
+			$("#register_username").next().text('');
 		}
 
 		//password
-		if(!$("#password").val().match(password)){
+		if(!$("#register_password").val().match(password)){
 			//uses regex to match to the value of the password field.
-			$("#password").next().text("Please provide a valid password").css("color","red");
+			$("#register_password").next().text("Please provide a valid password").css("color","red");
 			errors++;
 		} else {
-			$("#password").next().text('');
+			$("#register_password").next().text('');
 		}
 
 		//email
@@ -66,7 +66,7 @@ $(document).on("DOMContentLoaded", ()=>{
 		}
 
 		// confirm password
-		if($("#password").val() !== $("#cpassword").val()){
+		if($("#register_password").val() !== $("#cpassword").val()){
 			$("#cpassword").next().text("Password should match").css("color","red");
 			errors++;
 		} else {
@@ -83,8 +83,8 @@ $(document).on("DOMContentLoaded", ()=>{
 	//actual registration
 	$("#add_user").click((e) => {
 		if(validate_registration_form()){
-			let username = $("#username").val();
-			let password = $("#password").val();
+			let username = $("#register_username").val();
+			let password = $("#register_password").val();
 			let firstname = $("#firstname").val();
 			let lastname = $("#lastname").val();
 			let email = $("#email").val();
@@ -267,21 +267,6 @@ $(document).on("DOMContentLoaded", ()=>{
 });
 
 
-	// Show password Button
-	$("#showpassword").on('click', function(){
-			
-			var pass = $("#password");
-			var fieldtype = pass.attr('type');
-			if (fieldtype == 'password') {
-				pass.attr('type', 'text');
-				$(this).text("Hide Password");
-			}else{
-				pass.attr('type', 'password');
-				$(this).text("Show Password");
-			}
-		});
-
-	$('.pass_show').append('<span class="ptxt">Show</span>'); 
 
 
 

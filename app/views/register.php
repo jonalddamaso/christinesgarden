@@ -56,12 +56,12 @@
 					<div class="col-sm-6">
 						<div class="form-group">
 							<label for="username">Username:</label>
-							<input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+							<input type="text" class="form-control" id="register_username" name="username" placeholder="Enter username">
 							<span class="validation"></span>
 						</div>
 						<div class="form-group">
 							<label for="password">Password:</label>
-							<input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+							<input type="password" class="form-control" id="register_password" name="register_password" placeholder="Enter password">
 							<span class="validation"></span>
 						</div>
 						<div class="form-group">

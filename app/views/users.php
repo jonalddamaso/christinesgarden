@@ -46,10 +46,10 @@
 											$id = $indiv_user['id'];
 											if($indiv_user['role'] == "admin")
 												{
-													echo "<a href='../controllers/grant_admin.php?id=$id' class='btn btn-primary'><span uk-icon='user' uk-tooltip='title: Change to user; pos: bottom'></span></a>";
+													echo "<a href='../controllers/grant_admin.php?id=$id' class='uk-button uk-button-default' id = 'admin-user'><span uk-icon='user' uk-tooltip='title: Change to user; pos: bottom'></span></a>";
 											} else {
 
-													echo "<a href='../controllers/grant_admin.php?id=$id' class='btn btn-danger'><span uk-icon='user' uk-tooltip='title: Change to admin; pos: bottom'></span></a>";
+													echo "<a href='../controllers/grant_admin.php?id=$id' class='uk-button uk-button-default' id = 'user-user'><span uk-icon='user' uk-tooltip='title: Change to admin; pos: bottom'></span></a>";
 												}
 											 ?>
 											

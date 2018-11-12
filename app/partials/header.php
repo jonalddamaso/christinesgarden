@@ -93,6 +93,7 @@
                       </div>
                       <div class="form-group">
                         <button class="btn btn-info" type="button" name="showpassword" id="showpassword" value="Show Password">Show password</button> 
+                        
                         <button class="btn btn-primary" id="login" name="login">Login</button>
                       </div>
                       <hr>
@@ -103,6 +104,24 @@
                     </form>
             <!-- End form -->
 
+
+        <script type="text/javascript">
+            // Show password Button
+            $("#showpassword").on('click', function(){
+                    
+                    var pass = $("#password");
+                    var fieldtype = pass.attr('type');
+                    if (fieldtype == 'password') {
+                        pass.attr('type', 'text');
+                        $(this).text("Hide Password");
+                    }else{
+                        pass.attr('type', 'password');
+                        $(this).text("Show Password");
+                    }
+                });
+
+            $('.pass_show').append('<span class="ptxt">Show</span>'); 
+        </script>
     </div>
 </div>
 

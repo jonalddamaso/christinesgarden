@@ -9,7 +9,7 @@
 	<!-- browser compatability -->
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
-	<link rel="icon" type="image/gif/png" href="./assets/images/time64.png">
+	<link rel="icon" type="image/gif/png" href="../assets/images/pageicon1.png">
 	<!-- <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a> -->
 	<!-- fontawesome -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
@@ -22,7 +22,7 @@
 
 	<!-- google fonts pairing -->
 	<link href="https://fonts.googleapis.com/css?family=Catamaran|Lato:400i" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Elsie|Life+Savers|Macondo|Macondo+Swash+Caps|Pacifico|Sevillana|Spirax" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Elsie|Life+Savers|Macondo|Macondo+Swash+Caps|Pacifico|Sevillana|Spirax|Parisienne" rel="stylesheet">
 
 	<!-- local css -->
 	<link rel="stylesheet" type="text/css" href="../assets/styles/style.css">

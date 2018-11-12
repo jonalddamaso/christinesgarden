@@ -7,7 +7,7 @@
 
 #jumbo_id {
 	/*background-color: 	hsla(61, 56%, 68%, 0.76);*/
-  background-image: url(../images/background1.jpg);
+  /*background-image: url(../images/background1.jpg);*/
 	color: #C6DABF;
   background-size: 100%;
   background-repeat: no-repeat;
@@ -37,6 +37,8 @@
   /*font-family: 'Macondo Swash Caps', cursive;*/
   /*font-family: 'Sevillana', cursive;*/
   font-family: 'Pacifico', cursive;
+  /*font-family: 'Parisienne', cursive;*/
+  font-weight: 20px !important;
 }
 #img-logo {
   color: #88D498;
@@ -308,6 +310,66 @@ button > .status {
   color: black;
 }
 
+#checkoutpage {
+  background-color: hsla(61, 43%, 48%, 0.38);
+}
+
+#btn-proceed {
+  background-color: hsla(108, 82%, 66%, 0.55);
+  color: black;
+}
+#btn-proceed:hover {
+ background-color: hsla(61, 43%, 48%, 0.38);
+  color: black;
+}
+
+#admin-user {
+  background-color: hsla(175, 56%, 68%, 0.76);
+  color: black;
+}
+#admin-user:hover {
+ background-color: hsla(61, 43%, 48%, 0.38);
+  color: black;
+}
+
+#user-user {
+  background-color: hsla(349, 100%, 35%, 1);
+  color: black;
+}
+#user-user:hover {
+ background-color: hsla(61, 43%, 48%, 0.38);
+  color: black;
+}
+
+#backhome {
+  background-color: hsla(0, 0%, 28%, 0.72);
+  color: black;
+}
+#backhome:hover {
+ background-color: hsla(61, 43%, 48%, 0.38);
+  color: black;
+}
+
+#btn-place{
+  background-color: hsla(108, 82%, 66%, 0.55);
+  color: black;
+}
+#btn-place:hover {
+ background-color: hsla(61, 43%, 48%, 0.38);
+  color: black;
+}
+
+#btn-continue{
+  background-color: hsla(108, 82%, 66%, 0.55);
+  color: black;
+}
+#btn-continue:hover {
+ background-color: hsla(61, 43%, 48%, 0.38);
+  color: black;
+}
+
+
+
 
 
 
@@ -330,7 +392,7 @@ body {
   
 }
 
-.container-fluid {
+.home-wrapper {
     padding-right: 0px !important;
     padding-left: 0px !important;
     background-image: url(../images/backgroundhome.jpg);
@@ -383,37 +445,6 @@ body {
 #shophome:hover {
    background-color: hsla(61, 43%, 48%, 0.38);
 }
-#checkoutpage {
-  background-color: hsla(61, 43%, 48%, 0.38);
-}
-
-#btn-proceed {
-  background-color: hsla(108, 82%, 66%, 0.55);
-  color: black;
-}
-#btn-proceed:hover {
- background-color: hsla(61, 43%, 48%, 0.38);
-  color: black;
-}
-
-#btn-place{
-  background-color: hsla(108, 82%, 66%, 0.55);
-  color: black;
-}
-#btn-place:hover {
- background-color: hsla(61, 43%, 48%, 0.38);
-  color: black;
-}
-
-#btn-continue{
-  background-color: hsla(108, 82%, 66%, 0.55);
-  color: black;
-}
-#btn-continue:hover {
- background-color: hsla(61, 43%, 48%, 0.38);
-  color: black;
-}
-
 
 .scroller {
    height: 70pt;

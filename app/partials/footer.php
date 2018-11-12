@@ -9,6 +9,7 @@
 				<div class="footer-left">
 
 					<h4 id="nav-name"><em id="logo">Christine&#8217;s</em> Garden</h4>
+					
 
 					<p class="footer-links">
 						<a href="../views/home.php">Home</a>
