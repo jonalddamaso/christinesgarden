@@ -73,8 +73,8 @@
 				</div>
 			</form>
 			<div class="d-block text-center py-4">
-				<a href="login.php" class="btn btn-secondary">Login</a>
-				<button type="button" class="btn btn-primary uk-button uk-button-default demo" id="add_user" type="button" onclick="UIkit.notification({message: 'Successfully Registered', status: 'success'})">Register</button>
+				<!-- <a href="login.php" class="btn btn-secondary">Login</a> -->
+				<button type="button" class="btn btn-primary uk-button uk-button-default demo" id="add_user">Register</button>
 				
 			</div>
 		</div>		

@@ -13,16 +13,16 @@
 			<nav class="col-sm-12 uk-navbar-container uk-navbar-right" style="z-index: 980;" uk-navbar>
 				        <ul class="uk-navbar-nav">
 				            <li id="li-all">
-				                <a href="catalog.php" class="category category-all" id="category-all">Categories
-				                <div class="uk-navbar-dropdown">
-				                    <ul class="uk-nav uk-navbar-dropdown-nav">
+				                <a href="catalog.php" class="category" id="category">Categories
+				                <div class="uk-navbar-dropdown" uk-dropdown="pos: bottom-justify;animation: uk-animation-slide-top-small; duration: 500">
+				                    <ul class="uk-nav uk-navbar-dropdown-nav" id="ul-all">
 				                        <li class="list-group-item uk-active" id="li-all">All</li>
 				                </a>
 				                        <?php
 											 $sql_query = "SELECT * FROM categories";
 											 $categories = mysqli_query($conn, $sql_query);
 											 foreach ($categories as $category) { ?>
-											 	<a href="catalog.php? category_id= <?php echo $category['id'];?>" class="category" data-id ="<?php echo $category['id']?>">
+											 	<a href="catalog.php? category_id= <?php echo $category['id'];?>" class="category" data-id ="<?php echo $category['id']?>" id="li-all">
 											 	<li class="list-group-item" id="li-all">
 											 		<?php echo $category['name']; ?>
 											 	</li>
@@ -34,16 +34,16 @@
 				             </li>
 				             <li id="li-all">
 
-				                <a href="../controllers/sort.php?sort=asc" class="category category-all">Sort 
-				                <div class="uk-navbar-dropdown">
-				                    <ul class="uk-nav uk-navbar-dropdown-nav">
+				                <a href="../controllers/sort.php?sort=asc" class="sort" id="sort">Sort Price
+				                <div class="uk-navbar-dropdown" uk-dropdown="pos: bottom-justify;animation: uk-animation-slide-top-small; duration: 500">
+				                    <ul class="uk-nav uk-navbar-dropdown-nav" id="ul-all">
 				                       	<li class="list-group-item" id="li-all">
-									Price(Lowest to Highest)
+									Lowest to Highest
 								</li>
 								</a>
-								<a href="../controllers/sort.php?sort=desc">
+								<a href="../controllers/sort.php?sort=desc" id="sort">
 									<li class="list-group-item" id="li-all">
-										Price(Highest to Lowest)
+										Highest to Lowest
 									</li>
 								</a>
 					                    </ul>
@@ -58,8 +58,8 @@
 		    </nav>
 
 			 
-			<div class="col-sm-12" id="page-catalog">
-				<div class="container">
+			<div class="col-sm-12 mx-auto" id="page-catalog">
+				<div class="container mx-auto">
 				<?php 
 					$sql_query2 = "SELECT * FROM items";
 					if(isset($_GET['category_id'])){
@@ -89,11 +89,65 @@
 										<!-- This is the modal with the outside close button -->
 											<div id="mod<?php echo $item['id']; ?>" uk-modal>
 											    <div class="uk-modal-dialog uk-modal-body">
-											        <button class="uk-modal-close-outside" type="button" uk-close></button>
-											        <h2 class="uk-modal-title">Details:</h2>
-											        <p><img class="card-img-top" src="<?php echo $item['image_path']; ?>">
-											        <?php echo $item['description'] ?>
-											        </p>
+											    	 <button class="uk-modal-close-outside" type="button" uk-close></button>
+											    	 <div class="row">
+											    	 	 <div class="col-lg-5">
+											    	 	 	<img class="card-img-top" src="<?php echo $item['image_path']; ?>">
+													      </div>
+
+													      <div class="col-lg-7"> 
+													        <h2 class="uk-modal-title h2-responsive">
+													      	 	 <strong><?php echo $item['name']?></strong>	
+													        </h2>
+
+													        <h4 class="h4-responsive">
+													        <span class="green-text">
+												           	 	₱ <strong><?php echo $item['price']; ?></strong>
+												        	</span>
+												            </h4>
+
+												            <!--Accordion wrapper-->
+												            <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+
+													              <!-- Accordion card -->
+													              <div class="uk-card uk-card-hover">
+
+													                <!-- Card header -->
+													                <div class="card-header" role="tab" id="productdesc">
+													                  <a data-toggle="collapse" data-parent="#accordionEx" id="hide-desc" href="#collapsedesc" aria-expanded="true"
+													                    aria-controls="collapsedesc">
+													                    <h5 class="mb-0">
+													                      Product Description <i class="fas fa-angle-down"></i>
+													                    </h5>
+													                  </a>
+													                </div>
+
+													                <!-- Card body -->
+													                <div id="collapsedesc" class="collapse show" role="tabpanel" aria-labelledby="productdesc"
+													                  data-parent="#accordionEx">
+													                  <div class="card-body">
+													                    <p>
+																        <?php echo $item['description'] ?>
+																        </p>
+													                  </div>
+													                </div>
+
+													              </div>
+													            </div>
+												              <!-- Accordion card -->
+												              <hr>
+
+												              <div class="text-center">
+
+												                <input type="number" class="quantity-box mx-1" uk-tooltip="title: Add quantity; pos: bottom" name="quantity" min="1" placeholder="QTY" style="width:60px;">
+
+																<button type="submit" class="btn btn-outline-warning add-to-cart mx-1" data-id = "<?php echo $item['id'];?>" class="demo uk-button uk-button-default" type="button" onclick="UIkit.notification({message: '<span uk-icon=\'icon: check\'></span> Added to your cart',pos:'bottom-right',status: 'success',timeout: 1000})">
+																	Add to <i class="fas fa-cart-plus"></i></button>
+												              </div>
+
+													        
+													      </div>
+											    	</div>
 											    </div>
 											</div>
 										<!-- End of Modal -->

@@ -17,16 +17,16 @@
 	}
 
 	$paymentId = $_GET['paymentId'];
-	$payerId = $_GET['payerID'];
+	$payerId = $_GET['PayerID'];
 
 	$payment = Payment::get($paymentId, $paypal);
 	$execute = new PaymentExecution();
-	$execute->setPayerId($payerId)
+	$execute->setPayerId($payerId);
 
 	try {
 		$result = $payment->execute($execute, $paypal);
 		$result_of_payment =  json_decode($result);
-		$trans_code = $result->transaction[0]->invoice_number;
+		$trans_code = $result->transactions[0]->invoice_number;
 	} catch(Exception $e) {
 		echo($e->getData());
 		die();
@@ -51,11 +51,11 @@
 			$order_item_query = "INSERT INTO orders_item(order_id, item_id, quantity, price) VALUES ('$new_order_id','$item_id', '$qty', '". $item['price']."'); ";
 			mysqli_query($conn, $order_item_query);
 		}
+	
 	}
-
 	unset($_SESSION['cart']);
 	unset($_SESSION['address']);
-	$_SESSION['new_txn_number'] = $trans_code;
+	$_SESSION['trans_code'] = $trans_code;
 	mysqli_close($conn);
 	header('Location: ../views/confirmation.php');
 

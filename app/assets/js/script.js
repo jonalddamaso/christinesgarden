@@ -112,12 +112,6 @@ $(document).on("DOMContentLoaded", ()=>{
 			});
 		}
 	});
-	// removed reload
-	// $(document).off('click','.item-remove').on('click', '.item-remove', function(e){
-	// 	/*window.location.reload();*/
-	// 	console.log('clicked');
-	// });
-
 
 
 	//adding new items
@@ -171,6 +165,7 @@ $(document).on("DOMContentLoaded", ()=>{
 					$("#username").next().text("Please provide correct credentials").css("color","red");
 				} else {
 					window.location.replace("../index.php");
+
 				}
 			}
 
@@ -264,5 +259,38 @@ $(document).on("DOMContentLoaded", ()=>{
 	$('.edit-item').click(function(e){
 		window.location.reload();
 	});
+
+	$('.login').click(function(e){
+		window.location.reload();
+	});
+	
 });
+
+
+	// Show password Button
+	$("#showpassword").on('click', function(){
+			
+			var pass = $("#password");
+			var fieldtype = pass.attr('type');
+			if (fieldtype == 'password') {
+				pass.attr('type', 'text');
+				$(this).text("Hide Password");
+			}else{
+				pass.attr('type', 'password');
+				$(this).text("Show Password");
+			}
+		});
+
+	$('.pass_show').append('<span class="ptxt">Show</span>'); 
+
+
+
+
+
+
+
+
+
+
+
 

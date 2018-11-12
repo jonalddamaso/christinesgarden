@@ -7,12 +7,18 @@
 		<div class="col-lg-3 py-2">
 			<div class="list-group" id="list-tab" role = "tablist">
 				<a href="#profile" class="list-group-item" data-toggle="list" role="tab">User Information</a>
+
+			<!-- place checking here -->
+		<?php if(!isset($_SESSION['user']) || (isset($_SESSION['user']) && $_SESSION['user']['role'] == 2)) { ?>
+		<!-- end checking here -->
+
 				<a href="#history" class="list-group-item" data-toggle="list" role="tab">Order History</a>
+		<?php } ?>
 			</div>
 		</div>
 		<div class="col-lg-7">
 			<div class="tab-content">
-				<div class="tab-pane" id="profile" role="tabpanel">
+				<div class="tab-pane" id="profile" role="tabpanel" aria-expanded="true">
 					<h3>User Information</h3>
 					<form action="../controllers/update_user.php" method="POST">
 					<!-- TODO: make update_user.php -->
@@ -23,11 +29,15 @@
 							<span class="validation"></span><br>
 
 							<label for="old_password">Old Password</label>
+							<div class="form-group"> 
 							<input type="password" name="old_password" class="form-control" id="old_password">
+							</div>
 							<span class="validation"></span><br>
 
 							<label for="new_password">New Password</label>
+							<div class="form-group"> 
 							<input type="password" name="new_password" class="form-control" id="new_password">
+							</div>
 							<span class="validation"></span><br>
 
 							<label for="firstname">First Name</label>
@@ -51,6 +61,10 @@
 						</div>
 					</form>
 				</div>
+
+			<!-- place checking here -->
+		<?php if(!isset($_SESSION['user']) || (isset($_SESSION['user']) && $_SESSION['user']['role'] == 2)) { ?>
+		<!-- end checking here -->
 
 				<div class="tab-pane" id="history" role="tabpanel">
 					<div class="row">
@@ -91,7 +105,7 @@
 						</div>						
 					</div>
 				</div>
-
+			<?php } ?>
 
 			</div>
 		</div>

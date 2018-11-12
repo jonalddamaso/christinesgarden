@@ -12,7 +12,7 @@
 	use PayPal\Auth\OAuthTokenCredential;
 	use PayPal\Api\Payer;
 	use PayPal\Api\Item;
-	use PayPal\Api\Itemlist;
+	use PayPal\Api\ItemList;
 	use PayPal\Api\Details;
 	use PayPal\Api\Amount;
 	use PayPal\Api\Transaction;
@@ -114,7 +114,7 @@ if($payment_mode_id == 1){
 		$_SESSION['address'] = $_POST['addressLine1'];
 
 		$payer = new Payer();
-		$payer-> setPaymentMethod('paypal');
+		$payer-> setPaymentMethod('PayPal');
 
 		$total = 0;
 		$items = [];
@@ -122,7 +122,7 @@ if($payment_mode_id == 1){
 			$sql = "SELECT * FROM items WHERE id = $id";
 			$result = mysqli_query($conn, $sql);
 			$item = mysqli_fetch_assoc($result);
-			extract($result);
+			extract($item);
 			$total += $price*$quantity;
 			$indiv_item = new Item();
 			$indiv_item->setName($name)
@@ -132,23 +132,23 @@ if($payment_mode_id == 1){
 			$items[] = $indiv_item;
 		}
 
-		$item_list = new Itemlist();
+		$item_list = new ItemList();
 		$item_list->setItems($items);
 
 		$amount = new Amount();
-		$amount->setCurrency("PHP")
+		$amount->setCurrency('PHP')
 				->setTotal($total);
 
 		$transaction = new Transaction();
 		$transaction->setAmount($amount)
 					->setItemList($item_list)
-					->setDescription('Payment for Christine&#8217;s Garden Purchase')
+					->setDescription("Payment for Christine's Garden Purchase")
 					->setInvoiceNumber(uniqid("ChristinesGarden_"));
 
 		$redirectUrls = new RedirectUrls();
 		$redirectUrls
-			->setReturnUrl('http://localhost:/controllers/pay.php?success=true')
-			->setCancelUrl('http://localhost:/controllers/pay.php?success=false')
+			->setReturnUrl('http://localhost/capstone2/app/controllers/pay.php?success=true')
+			->setCancelUrl('http://localhost/capstone2/app/controllers/pay.php?success=false');
 
 		$payment = new Payment();
 		$payment->setIntent('sale')
@@ -161,6 +161,49 @@ if($payment_mode_id == 1){
 		} catch(Exception $e) {
 				die($e->getData());
 			}
+
+		//create a new instance of phpmailer.
+					$mail = new PHPMailer(true);
+
+					//Email contents
+					$staff_email = 'christines0garden@gmail.com'; //this is the email you created earlier
+					$customer_email = $_SESSION['user']['email']; //Email of the user that is currently logged in.
+					$email_subject = "Christine's Garden - Order confirmation!"; //This is  up to you.
+					$email_body = "<h3>Reference Number: $trans_code</h3> <p>Ship to: $address</p>";
+
+					//Actual Sending of email
+					try {
+					 //Server setting
+						// $mail->SMTPDebug = 4; //Enables us to see detailed debug output;
+						//Removing debug will remove the messages and route us to confirmation
+						$mail->isSMTP(); //sets mailer to use SMTP to send email
+						$mail->Host = 'smtp.gmail.com'; //uses Gmail's SMTP server
+						$mail->SMTPAuth = true; //Enables SMTP authentication
+						$mail->Username = $staff_email; //defines the email's username
+						$mail->Password = "garden080121"; //defines the email's password , password is the password you created for the email.
+						$mail->SMTPSecure = 'tls'; //allows for TLS encrption, we can also use SSL
+						$mail->Port = 587; //Port to connect to.
+
+					//Recipients
+						$mail->setFrom($staff_email, "Christine's Garden"); //sets the sender's alias.
+						$mail->addAddress($customer_email);
+
+					//Content
+						$mail->isHTML(true); //Sets email format to HTML
+						$mail->Subject = $email_subject;
+						$mail->Body = $email_body;
+
+						$mail->send();
+						header('location: ../views/confirmation.php');
+
+					} catch (Exception $e){
+						echo "Message couldn't be sent. Mailer Error: ". $mail->ErrorInfo;
+					}
+					//try catch: it performs a block of code and if it fails it catches the eroor message.
+
+					//End send email
+					mysqli_close($conn);
+
 
 		$approvalUrl = $payment->getApprovalLink();
 		header('location: '.$approvalUrl);
